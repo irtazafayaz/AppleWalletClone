@@ -10,7 +10,8 @@ import SwiftUI
 struct HomePage: View {
     
     @State private var openCardDetailsPage: Bool = false
-    
+    @State private var openProductDetailsPage: Bool = false
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -59,12 +60,13 @@ struct HomePage: View {
                 VStack() {
                     ForEach(products, id: \.id) { product in
                         ProductRowView(product: product)
+                            .onTapGesture {
+                                openProductDetailsPage.toggle()
+                            }
                     }
                 }
                 .background(.gray.opacity(0.2))
                 .cornerRadius(10)
-                
-                
                 
                 Spacer()
                 
@@ -72,6 +74,9 @@ struct HomePage: View {
             .background(.black)
             .navigationDestination(isPresented: $openCardDetailsPage, destination: {
                 CardDetailsPage()
+            })
+            .navigationDestination(isPresented: $openProductDetailsPage, destination: {
+                ProductDetailPage()
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
