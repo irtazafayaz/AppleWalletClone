@@ -1,0 +1,6 @@
+framework module Shiny {
+  umbrella header "Shiny-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - Shiny (2.0.2)
+
+DEPENDENCIES:
+  - Shiny
+
+SPEC REPOS:
+  trunk:
+    - Shiny
+
+SPEC CHECKSUMS:
+  Shiny: 6030b9170aa3192b4c99de1374435d5757df9d69
+
+PODFILE CHECKSUM: 1b7fc0a1853550decc83cc2bff4c729edebc5f98
+
+COCOAPODS: 1.15.2

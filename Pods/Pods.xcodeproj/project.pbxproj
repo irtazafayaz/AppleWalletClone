@@ -1,0 +1,622 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0D61E173C1C246802AFC4AD36CC02DB6 /* Pods-AppleWallet-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8AA70E6C1DDC28C2C650A1255E9400 /* Pods-AppleWallet-dummy.m */; };
+		1A90780B977A64CD7107FA4300F564D4 /* Gyro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AE10C64D988905AA87BF985E57DA67A /* Gyro.swift */; };
+		2183BBD08AE4A5C42BB505BA498577DE /* Shiny.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66988B5F3B4A37086AB7DF351AEB67F /* Shiny.swift */; };
+		4A72F71209EE40BF3801590715FA65D2 /* Pods-AppleWallet-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F27678489673EFF0E9EBDBB207BCD20F /* Pods-AppleWallet-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		58CB0BD5FE2B155CF37FB049C2CE1DC7 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5241D509984B0264B9382B18F3AF8AEA /* Gradient.swift */; };
+		9C57D6F8FFEBFCADC00EFEAF897C6A91 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E28560C6A4CF3FD0A03A4AA5CB3EAC /* Scene.swift */; };
+		B532320907C200F47C5E846A1A99B6C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CD6A37491043311EB5A44199F07A164D /* Shiny-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DDC08620273A8817C4888FA2A98BD1F /* Shiny-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA5CDD026C7B4C3144E59B6E2853B87C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		E530EE3876AACEE8FE81246864173DCB /* Shiny-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD196113A6E84D853D57FBD3AC3528AB /* Shiny-dummy.m */; };
+		ECCA2702AD5206C25A6761DF399E18AD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0AE53CD57D84A404B09A29175887380 /* Extensions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC35F86308C4A242C4B91F44205074A9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71E64F2DBC59C858F34693C2433C987A;
+			remoteInfo = Shiny;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0B1A3E7121FD07FF42C1900175210EB7 /* Pods-AppleWallet */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-AppleWallet"; path = Pods_AppleWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E28560C6A4CF3FD0A03A4AA5CB3EAC /* Scene.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Scene.swift; path = Sources/Scene.swift; sourceTree = "<group>"; };
+		47BACA84D34097DDEC34CFC2B436DC54 /* Shiny.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shiny.release.xcconfig; sourceTree = "<group>"; };
+		4ED682C16F26307F1DED150D4CD45BA4 /* Pods-AppleWallet-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AppleWallet-frameworks.sh"; sourceTree = "<group>"; };
+		5241D509984B0264B9382B18F3AF8AEA /* Gradient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gradient.swift; path = Sources/Gradient.swift; sourceTree = "<group>"; };
+		5AE10C64D988905AA87BF985E57DA67A /* Gyro.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Gyro.swift; path = Sources/Gyro.swift; sourceTree = "<group>"; };
+		5DDC08620273A8817C4888FA2A98BD1F /* Shiny-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Shiny-umbrella.h"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78C38D63E8B8F8C6A8F4179CEA3B6177 /* Pods-AppleWallet-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AppleWallet-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7F043FEA5319235D44EBE728E6556037 /* Pods-AppleWallet.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-AppleWallet.modulemap"; sourceTree = "<group>"; };
+		84E81373F47194EB32BC3FED534619EA /* Shiny.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Shiny.modulemap; sourceTree = "<group>"; };
+		8FAD6276EC4A053DA63FAE81C347371C /* Pods-AppleWallet-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppleWallet-Info.plist"; sourceTree = "<group>"; };
+		93267519F6795DE4AB7860DCD3D93953 /* Pods-AppleWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		9AAA26B359852120A8E869E0D8F675D9 /* Shiny-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Shiny-Info.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F70C82377CC4CC6E3CCC682AED6F7E4 /* Shiny */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Shiny; path = Shiny.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB8AA70E6C1DDC28C2C650A1255E9400 /* Pods-AppleWallet-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AppleWallet-dummy.m"; sourceTree = "<group>"; };
+		B66988B5F3B4A37086AB7DF351AEB67F /* Shiny.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Shiny.swift; path = Sources/Shiny.swift; sourceTree = "<group>"; };
+		CD196113A6E84D853D57FBD3AC3528AB /* Shiny-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Shiny-dummy.m"; sourceTree = "<group>"; };
+		D0AE53CD57D84A404B09A29175887380 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Sources/Extensions.swift; sourceTree = "<group>"; };
+		DE8558DA76A1D5A7BA9038AACFC8D89C /* Shiny.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Shiny.debug.xcconfig; sourceTree = "<group>"; };
+		E3648A037E88B9F4507A70C5CA70FBFD /* Pods-AppleWallet-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppleWallet-acknowledgements.plist"; sourceTree = "<group>"; };
+		F27678489673EFF0E9EBDBB207BCD20F /* Pods-AppleWallet-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AppleWallet-umbrella.h"; sourceTree = "<group>"; };
+		F434853646308381AE61DA7B77412D2B /* Shiny-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Shiny-prefix.pch"; sourceTree = "<group>"; };
+		F545D0D191312CC5667914C54F21204C /* Pods-AppleWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleWallet.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A2BBE820A5A965681DD69DC9E2E55ED /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B532320907C200F47C5E846A1A99B6C3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		60AF21A50F90F01A4F1DDF4E0A93A4D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA5CDD026C7B4C3144E59B6E2853B87C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		027A74EF2C742BF35E9E7E6F524A6AEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				519FB07DB59FCF7A3B06959E14CEBEC9 /* Shiny */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		519FB07DB59FCF7A3B06959E14CEBEC9 /* Shiny */ = {
+			isa = PBXGroup;
+			children = (
+				D0AE53CD57D84A404B09A29175887380 /* Extensions.swift */,
+				5241D509984B0264B9382B18F3AF8AEA /* Gradient.swift */,
+				5AE10C64D988905AA87BF985E57DA67A /* Gyro.swift */,
+				28E28560C6A4CF3FD0A03A4AA5CB3EAC /* Scene.swift */,
+				B66988B5F3B4A37086AB7DF351AEB67F /* Shiny.swift */,
+				D96A1FA3DAED72B03C4A82DD2D3E8B5E /* Support Files */,
+			);
+			name = Shiny;
+			path = Shiny;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		58BA7B2EB7725B1711E32C4D4E95DEC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B1A3E7121FD07FF42C1900175210EB7 /* Pods-AppleWallet */,
+				9F70C82377CC4CC6E3CCC682AED6F7E4 /* Shiny */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		98D8E85B2ACA8F98712AC75E0554AE9B /* Pods-AppleWallet */ = {
+			isa = PBXGroup;
+			children = (
+				7F043FEA5319235D44EBE728E6556037 /* Pods-AppleWallet.modulemap */,
+				78C38D63E8B8F8C6A8F4179CEA3B6177 /* Pods-AppleWallet-acknowledgements.markdown */,
+				E3648A037E88B9F4507A70C5CA70FBFD /* Pods-AppleWallet-acknowledgements.plist */,
+				AB8AA70E6C1DDC28C2C650A1255E9400 /* Pods-AppleWallet-dummy.m */,
+				4ED682C16F26307F1DED150D4CD45BA4 /* Pods-AppleWallet-frameworks.sh */,
+				8FAD6276EC4A053DA63FAE81C347371C /* Pods-AppleWallet-Info.plist */,
+				F27678489673EFF0E9EBDBB207BCD20F /* Pods-AppleWallet-umbrella.h */,
+				93267519F6795DE4AB7860DCD3D93953 /* Pods-AppleWallet.debug.xcconfig */,
+				F545D0D191312CC5667914C54F21204C /* Pods-AppleWallet.release.xcconfig */,
+			);
+			name = "Pods-AppleWallet";
+			path = "Target Support Files/Pods-AppleWallet";
+			sourceTree = "<group>";
+		};
+		BEFE55ADBD6E471BFF3236486BBE73E0 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				98D8E85B2ACA8F98712AC75E0554AE9B /* Pods-AppleWallet */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				027A74EF2C742BF35E9E7E6F524A6AEB /* Pods */,
+				58BA7B2EB7725B1711E32C4D4E95DEC3 /* Products */,
+				BEFE55ADBD6E471BFF3236486BBE73E0 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D96A1FA3DAED72B03C4A82DD2D3E8B5E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				84E81373F47194EB32BC3FED534619EA /* Shiny.modulemap */,
+				CD196113A6E84D853D57FBD3AC3528AB /* Shiny-dummy.m */,
+				9AAA26B359852120A8E869E0D8F675D9 /* Shiny-Info.plist */,
+				F434853646308381AE61DA7B77412D2B /* Shiny-prefix.pch */,
+				5DDC08620273A8817C4888FA2A98BD1F /* Shiny-umbrella.h */,
+				DE8558DA76A1D5A7BA9038AACFC8D89C /* Shiny.debug.xcconfig */,
+				47BACA84D34097DDEC34CFC2B436DC54 /* Shiny.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Shiny";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		28C2A8DB1409B4DC4E0D61CC78156ABC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A72F71209EE40BF3801590715FA65D2 /* Pods-AppleWallet-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		775D2586162FF80EFBABD4BB36DD9128 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6A37491043311EB5A44199F07A164D /* Shiny-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		71E64F2DBC59C858F34693C2433C987A /* Shiny */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D5C0F0CF580D42E2DCFCA84764D1EE30 /* Build configuration list for PBXNativeTarget "Shiny" */;
+			buildPhases = (
+				775D2586162FF80EFBABD4BB36DD9128 /* Headers */,
+				80FAE16D5B6DC8E343730D67B257D249 /* Sources */,
+				60AF21A50F90F01A4F1DDF4E0A93A4D0 /* Frameworks */,
+				9742A4E561C49ACFBDBE5EFDCB61BC51 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Shiny;
+			productName = Shiny;
+			productReference = 9F70C82377CC4CC6E3CCC682AED6F7E4 /* Shiny */;
+			productType = "com.apple.product-type.framework";
+		};
+		E236C137FA2375F2FAC442443F75B3C2 /* Pods-AppleWallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0862DF51C8442AF364B50EF021CD5818 /* Build configuration list for PBXNativeTarget "Pods-AppleWallet" */;
+			buildPhases = (
+				28C2A8DB1409B4DC4E0D61CC78156ABC /* Headers */,
+				639DF20EA0AB4E3C46795E6537025C11 /* Sources */,
+				3A2BBE820A5A965681DD69DC9E2E55ED /* Frameworks */,
+				E8F8888A96B27CC95DF017511C958E3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00625AC35B6E2B78B148C7F271A02977 /* PBXTargetDependency */,
+			);
+			name = "Pods-AppleWallet";
+			productName = Pods_AppleWallet;
+			productReference = 0B1A3E7121FD07FF42C1900175210EB7 /* Pods-AppleWallet */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 58BA7B2EB7725B1711E32C4D4E95DEC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E236C137FA2375F2FAC442443F75B3C2 /* Pods-AppleWallet */,
+				71E64F2DBC59C858F34693C2433C987A /* Shiny */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9742A4E561C49ACFBDBE5EFDCB61BC51 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F8888A96B27CC95DF017511C958E3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		639DF20EA0AB4E3C46795E6537025C11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0D61E173C1C246802AFC4AD36CC02DB6 /* Pods-AppleWallet-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80FAE16D5B6DC8E343730D67B257D249 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECCA2702AD5206C25A6761DF399E18AD /* Extensions.swift in Sources */,
+				58CB0BD5FE2B155CF37FB049C2CE1DC7 /* Gradient.swift in Sources */,
+				1A90780B977A64CD7107FA4300F564D4 /* Gyro.swift in Sources */,
+				9C57D6F8FFEBFCADC00EFEAF897C6A91 /* Scene.swift in Sources */,
+				2183BBD08AE4A5C42BB505BA498577DE /* Shiny.swift in Sources */,
+				E530EE3876AACEE8FE81246864173DCB /* Shiny-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00625AC35B6E2B78B148C7F271A02977 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Shiny;
+			target = 71E64F2DBC59C858F34693C2433C987A /* Shiny */;
+			targetProxy = DC35F86308C4A242C4B91F44205074A9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0D2402778B2CCB67E16BC70C9FDF96FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93267519F6795DE4AB7860DCD3D93953 /* Pods-AppleWallet.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		36F4D37A5E30FDF7F296E2B18D244A27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47BACA84D34097DDEC34CFC2B436DC54 /* Shiny.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Shiny/Shiny-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Shiny/Shiny-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Shiny/Shiny.modulemap";
+				PRODUCT_MODULE_NAME = Shiny;
+				PRODUCT_NAME = Shiny;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6A5C026ED62BBFE3380CD257EEFAEB20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		79DF772F471C00513FEE93B38974511F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE8558DA76A1D5A7BA9038AACFC8D89C /* Shiny.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Shiny/Shiny-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Shiny/Shiny-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Shiny/Shiny.modulemap";
+				PRODUCT_MODULE_NAME = Shiny;
+				PRODUCT_NAME = Shiny;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DED179E2586CC81F961C1FDC431571AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F545D0D191312CC5667914C54F21204C /* Pods-AppleWallet.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E873CA97BD124B21839AF13C9BE1CD18 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0862DF51C8442AF364B50EF021CD5818 /* Build configuration list for PBXNativeTarget "Pods-AppleWallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0D2402778B2CCB67E16BC70C9FDF96FC /* Debug */,
+				DED179E2586CC81F961C1FDC431571AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A5C026ED62BBFE3380CD257EEFAEB20 /* Debug */,
+				E873CA97BD124B21839AF13C9BE1CD18 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D5C0F0CF580D42E2DCFCA84764D1EE30 /* Build configuration list for PBXNativeTarget "Shiny" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				79DF772F471C00513FEE93B38974511F /* Debug */,
+				36F4D37A5E30FDF7F296E2B18D244A27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
