@@ -20,6 +20,8 @@
 		D57DD7DC2B931985008532AE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7DB2B931985008532AE /* Model.swift */; };
 		D57DD7DE2B93732C008532AE /* CardDetailsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7DD2B93732C008532AE /* CardDetailsPage.swift */; };
 		D57DD7E02B9374E4008532AE /* ProductDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7DF2B9374E4008532AE /* ProductDetailPage.swift */; };
+		D57DD7E22B93C81E008532AE /* ReceivedProductDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7E12B93C81E008532AE /* ReceivedProductDetailPage.swift */; };
+		D57DD7E42B93CDCE008532AE /* InstantTransferPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		D57DD7DB2B931985008532AE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D57DD7DD2B93732C008532AE /* CardDetailsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailsPage.swift; sourceTree = "<group>"; };
 		D57DD7DF2B9374E4008532AE /* ProductDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPage.swift; sourceTree = "<group>"; };
+		D57DD7E12B93C81E008532AE /* ReceivedProductDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedProductDetailPage.swift; sourceTree = "<group>"; };
+		D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantTransferPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				D57DD7BA2B9261A0008532AE /* HomePage.swift */,
 				D57DD7DD2B93732C008532AE /* CardDetailsPage.swift */,
 				D57DD7DF2B9374E4008532AE /* ProductDetailPage.swift */,
+				D57DD7E12B93C81E008532AE /* ReceivedProductDetailPage.swift */,
+				D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,9 +270,11 @@
 				D57DD7B02B91FC31008532AE /* Utilities.swift in Sources */,
 				D57DD79E2B91E81E008532AE /* ContentView.swift in Sources */,
 				D57DD7B42B91FD6F008532AE /* DotView.swift in Sources */,
+				D57DD7E42B93CDCE008532AE /* InstantTransferPage.swift in Sources */,
 				D57DD7E02B9374E4008532AE /* ProductDetailPage.swift in Sources */,
 				D57DD7DE2B93732C008532AE /* CardDetailsPage.swift in Sources */,
 				D57DD7B22B91FD03008532AE /* CardViewWrapper.swift in Sources */,
+				D57DD7E22B93C81E008532AE /* ReceivedProductDetailPage.swift in Sources */,
 				D57DD79C2B91E81E008532AE /* AppleWalletApp.swift in Sources */,
 				D57DD7BB2B9261A0008532AE /* HomePage.swift in Sources */,
 				D57DD7AE2B91FBEC008532AE /* CardView.swift in Sources */,

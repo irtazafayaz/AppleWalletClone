@@ -11,6 +11,8 @@ struct HomePage: View {
     
     @State private var openCardDetailsPage: Bool = false
     @State private var openProductDetailsPage: Bool = false
+    @State private var openInstantTransferPage: Bool = false
+    @State private var selectedProduct: Product = products[0]
 
     var body: some View {
         NavigationStack {
@@ -41,7 +43,6 @@ struct HomePage: View {
                 .background(.gray.opacity(0.2))
                 .clipShape(RoundedRectangle(cornerRadius: 10))
                 
-                
                 HStack {
                     Text("Latest Transactions")
                         .font(.title)
@@ -59,10 +60,15 @@ struct HomePage: View {
                 
                 VStack() {
                     ForEach(products, id: \.id) { product in
-                        ProductRowView(product: product)
-                            .onTapGesture {
+                        Button {
+                            if product.type == .cashReceived {
                                 openProductDetailsPage.toggle()
+                            } else {
+                                openInstantTransferPage.toggle()
                             }
+                        } label: {
+                            ProductRowView(product: product)
+                        }
                     }
                 }
                 .background(.gray.opacity(0.2))
@@ -76,7 +82,10 @@ struct HomePage: View {
                 CardDetailsPage()
             })
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
-                ProductDetailPage()
+                ProductDetailPage(product: selectedProduct)
+            })
+            .navigationDestination(isPresented: $openInstantTransferPage, destination: {
+                InstantTransferPage(product: selectedProduct)
             })
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
@@ -115,7 +124,7 @@ struct HomePage: View {
                 }
             }
         }
-
+        
     }
 }
 
@@ -125,6 +134,7 @@ struct HomePage: View {
 
 
 struct ProductRowView: View {
+    
     var product: Product
     
     var body: some View {
@@ -147,7 +157,7 @@ struct ProductRowView: View {
             Spacer()
             Text(product.price)
                 .foregroundStyle(.white)
-
+            
             Button(action: {
                 
             }) {
