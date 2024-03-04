@@ -197,7 +197,9 @@ struct CardDetailsPage: View {
                 
                 
             }
+            .toolbarBackground(Color.black)
         }
+        .toolbarBackground(Color.black)
         .background(.black)
     }
 }

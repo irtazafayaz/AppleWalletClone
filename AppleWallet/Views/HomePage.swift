@@ -167,6 +167,7 @@ struct HomePage: View {
             .navigationDestination(isPresented: $openInstantTransferPage, destination: {
                 InstantTransferPage(product: selectedProduct)
             })
+            .toolbarBackground(Color.black)
         }
         
     }
