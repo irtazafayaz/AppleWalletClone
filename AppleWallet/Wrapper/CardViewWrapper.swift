@@ -7,15 +7,20 @@
 
 import SwiftUI
 
-struct CardViewWrapper: UIViewRepresentable {
-    func makeUIView(context: Context) -> CardView {
-        let card = CardView()
-        card.bounds.size = CGSize(width: 350, height: 200)
-        card.setupDots()
-        return card
-    }
+struct CardViewWrapper: UIViewControllerRepresentable {
+    typealias UIViewControllerType = ViewController
     
-    func updateUIView(_ uiView: CardView, context: Context) {
+    func makeUIViewController(context: Context) -> ViewController {
+        let viewController = ViewController()
+        let rootView = UIHostingController(rootView: EmptyView())
+        rootView.view.frame = CGRect(x: 0, y: 0, width: 350, height: 200)
+        rootView.view.addSubview(viewController.view)
+        viewController.beginMotionUpdates()
+        return viewController
+    }
+
+    
+    func updateUIViewController(_ uiViewController: ViewController, context: Context) {
         // Update any properties or perform any necessary actions here
     }
 }
