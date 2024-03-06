@@ -12,33 +12,44 @@ struct ProductRowView: View {
     var product: Transactions
     
     var body: some View {
-        HStack {
-            Image(systemName: "person.circle.fill")
-                .resizable()
-                .foregroundColor(.gray)
-                .frame(width: 50, height: 50)
-            VStack(alignment: .leading) {
-                Text(product.title ?? "NaN")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                Text(product.desc ?? "NaN")
-                    .font(.subheadline)
-                    .foregroundStyle(.gray)
-                Text(product.date ?? "NaN")
-                    .font(.subheadline)
-                    .foregroundStyle(.gray)
-            }
-            Spacer()
-            Text(product.price ?? "NaN")
-                .foregroundStyle(.white)
+        VStack {
             
-            Button(action: {
+            HStack {
+                Image(systemName: "person.circle.fill")
+                    .resizable()
+                    .foregroundColor(.gray)
+                    .frame(width: 50, height: 50)
+                VStack(alignment: .leading) {
+                    Text(product.title ?? "NaN")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    Text(product.desc ?? "NaN")
+                        .font(.subheadline)
+                        .foregroundStyle(.gray)
+                    Text(product.date ?? "NaN")
+                        .font(.subheadline)
+                        .foregroundStyle(.gray)
+                }
+                Spacer()
+                if let type = product.type, type == ProductType.cancel.rawValue {
+                    Text(product.price ?? "NaN")
+                        .foregroundStyle(.white)
+                        .strikethrough()
+                } else {
+                    Text(product.price ?? "NaN")
+                        .foregroundStyle(.white)
+                }
                 
-            }) {
-                Image(systemName: "chevron.right")
-                    .foregroundStyle(.gray)
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "chevron.right")
+                        .foregroundStyle(.gray)
+                }
+                .buttonStyle(BorderlessButtonStyle())
             }
-            .buttonStyle(BorderlessButtonStyle())
+           
+
         }
         .padding(.horizontal)
         .padding(.vertical, 10)

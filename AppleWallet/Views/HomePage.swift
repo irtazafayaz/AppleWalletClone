@@ -175,17 +175,25 @@ struct ProductsSection: View {
 
     var body: some View {
         VStack {
-            ForEach(transactions, id: \.id) { transaction in
-                Button {
-                    selectedTransaction = transaction
-                    guard let type = transaction.type else { return }
-                    if type == ProductType.received.rawValue {
-                        openProductDetailsPage.toggle()
-                    } else {
-                        openInstantTransferPage.toggle()
+            ForEach(transactions.indices, id: \.self) { index in
+                VStack {
+                    Button {
+                        selectedTransaction = transactions[index]
+                        guard let type = transactions[index].type else { return }
+                        if type == ProductType.received.rawValue {
+                            openProductDetailsPage.toggle()
+                        } else if type == ProductType.instant.rawValue {
+                            openInstantTransferPage.toggle()
+                        }
+                    } label: {
+                        ProductRowView(product: transactions[index])
                     }
-                } label: {
-                    ProductRowView(product: transaction)
+                    if index != transactions.indices.last {
+                        Divider()
+                            .background(Color.white)
+                            .frame(height: 2)
+                            .padding(.horizontal, 10)
+                    }
                 }
             }
         }
@@ -193,6 +201,7 @@ struct ProductsSection: View {
         .cornerRadius(10)
     }
 }
+
 
 
 

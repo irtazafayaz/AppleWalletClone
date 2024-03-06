@@ -11,6 +11,20 @@ struct InstantTransferPage: View {
     
     var product: Transactions
     
+    func getFees() -> String {
+        if let price = product.price {
+            let priceWithoutDollarSign = price.replacingOccurrences(of: "$", with: "")
+            if let priceNum = Double(priceWithoutDollarSign) {
+                return String("$\(priceNum - 0.38)")
+            } else {
+                return "NaN"
+            }
+        } else {
+            return "NaN"
+        }
+    }
+
+    
     var body: some View {
         VStack {
             Text(product.price ?? "NaN")
@@ -49,7 +63,7 @@ struct InstantTransferPage: View {
                         .foregroundStyle(.white)
                         .font(.title3)
                     Spacer()
-                    Text("$24.62")
+                    Text(getFees())
                         .foregroundStyle(.white)
                         .font(.title3)
                 }
@@ -70,7 +84,7 @@ struct InstantTransferPage: View {
                         .font(.title3)
                         .bold()
                     Spacer()
-                    Text("$25.00")
+                    Text(product.price ?? "NaN")
                         .foregroundStyle(.white)
                         .font(.title3)
                         .bold()
