@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductRowView: View {
     
-    var product: Product
+    var product: Transactions
     
     var body: some View {
         HStack {
@@ -18,18 +18,18 @@ struct ProductRowView: View {
                 .foregroundColor(.gray)
                 .frame(width: 50, height: 50)
             VStack(alignment: .leading) {
-                Text(product.title)
+                Text(product.title ?? "NaN")
                     .font(.headline)
                     .foregroundColor(.white)
-                Text(product.description)
+                Text(product.desc ?? "NaN")
                     .font(.subheadline)
                     .foregroundStyle(.gray)
-                Text(product.date)
+                Text(product.date ?? "NaN")
                     .font(.subheadline)
                     .foregroundStyle(.gray)
             }
             Spacer()
-            Text(product.price)
+            Text(product.price ?? "NaN")
                 .foregroundStyle(.white)
             
             Button(action: {

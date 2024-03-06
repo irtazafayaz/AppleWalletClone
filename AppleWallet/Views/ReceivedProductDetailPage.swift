@@ -9,11 +9,11 @@ import SwiftUI
 
 struct ReceivedProductDetailPage: View {
     
-    var product: Product
+    var product: Transactions
     
     var body: some View {
         VStack {
-            Text(product.price)
+            Text(product.price ?? "NaN")
                 .foregroundStyle(.white)
                 .bold()
                 .font(.system(size: 60))
@@ -22,13 +22,13 @@ struct ReceivedProductDetailPage: View {
                 Text("From ")
                     .foregroundStyle(.gray)
                     .font(.title3)
-                Text(product.title)
+                Text(product.title ?? "NaN")
                     .foregroundStyle(.gray)
                     .font(.title3)
             }
             
             HStack {
-                Text(product.date)
+                Text(product.date ?? "NaN")
                     .foregroundStyle(.gray)
                     .font(.title3)
                 Text("5:52 PM")
@@ -41,7 +41,7 @@ struct ReceivedProductDetailPage: View {
                     .foregroundStyle(.white)
                     .font(.title3)
                     .bold()
-                Text("Sent from \(product.title)")
+                Text("Sent from \(product.title ?? "NaN")")
                     .foregroundStyle(.gray)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -53,7 +53,7 @@ struct ReceivedProductDetailPage: View {
                         .font(.title3)
                         .bold()
                     Spacer()
-                    Text(product.price)
+                    Text(product.price ?? "NaN")
                         .foregroundStyle(.white)
                         .font(.title3)
                         .bold()
@@ -81,7 +81,7 @@ struct ReceivedProductDetailPage: View {
                     .foregroundStyle(.gray)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(product.id)
+                Text(product.id ?? "NaN")
                     .foregroundStyle(.white)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -100,6 +100,6 @@ struct ReceivedProductDetailPage: View {
     }
 }
 
-#Preview {
-    ReceivedProductDetailPage(product: products[0])
-}
+//#Preview {
+//    ReceivedProductDetailPage(product: products[0])
+//}

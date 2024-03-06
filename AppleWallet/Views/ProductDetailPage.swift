@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductDetailPage: View {
     
-    var product: Product
+    var product: Transactions
     @State private var openReceivedDetailsPage: Bool = false
 
     var body: some View {
@@ -20,7 +20,7 @@ struct ProductDetailPage: View {
                     .foregroundColor(.gray)
                     .frame(width: 100, height: 100)
                 
-                Text(product.title)
+                Text(product.title ?? "NaN")
                     .foregroundStyle(.white)
                     .font(.title)
                     .bold()
@@ -29,13 +29,13 @@ struct ProductDetailPage: View {
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text(product.date)
+                        Text(product.date ?? "NaN")
                             .foregroundStyle(.white)
                             .font(.title2)
                             .padding(.horizontal)
                             .padding(.top, 20)
                         Spacer()
-                        Text(product.price)
+                        Text(product.price ?? "NaN")
                             .foregroundStyle(.white)
                             .font(.title2)
                             .padding(.trailing, 5)
@@ -45,7 +45,7 @@ struct ProductDetailPage: View {
                             .foregroundStyle(.gray)
                             .padding(.top, 20)
                     }
-                    Text(product.description)
+                    Text(product.desc ?? "NaN")
                         .foregroundStyle(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -68,6 +68,6 @@ struct ProductDetailPage: View {
     }
 }
 
-#Preview {
-    ProductDetailPage(product: products[0])
-}
+//#Preview {
+//    ProductDetailPage(product: products[0])
+//}

@@ -12,6 +12,7 @@ struct HomePage: View {
     @State private var openProductDetailsPage: Bool = false
     @State private var openInstantTransferPage: Bool = false
     @State private var selectedProduct: Product = products[0]
+    @State private var selectedTransaction: Transactions?
     @State private var defaultY: CGFloat = 0
     @State private var showNavBar: Bool = false
     
@@ -26,8 +27,10 @@ struct HomePage: View {
                     CardViewSection()
                     if showNavBar {
                         BalanceSection()
-                        LatestTransactionsSection()
-                        ProductsSection(openProductDetailsPage: $openProductDetailsPage, openInstantTransferPage: $openInstantTransferPage)
+                        LatestTransactionsSection {
+                            generateRandomTransaction()
+                        }
+                        ProductsSection(openProductDetailsPage: $openProductDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
                     }
                     Spacer()
                 }
@@ -41,10 +44,14 @@ struct HomePage: View {
             .background(.black)
             
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
-                ProductDetailPage(product: selectedProduct)
+                if let selectedTransaction = selectedTransaction {
+                    ProductDetailPage(product: selectedTransaction)
+                }
             })
             .navigationDestination(isPresented: $openInstantTransferPage, destination: {
-                InstantTransferPage(product: selectedProduct)
+                if let selectedTransaction = selectedTransaction {
+                    InstantTransferPage(product: selectedTransaction)
+                }
             })
             .toolbarBackground(Color.black)
         }
@@ -134,6 +141,9 @@ struct BalanceSection: View {
 }
 
 struct LatestTransactionsSection: View {
+    
+    var action: () -> Void
+    
     var body: some View {
         HStack {
             Text("Latest Transactions")
@@ -144,7 +154,7 @@ struct LatestTransactionsSection: View {
             Spacer()
             
             Button {
-                //                generateRandomTransaction()
+                action()
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
                     .foregroundStyle(.white)
@@ -158,24 +168,28 @@ struct LatestTransactionsSection: View {
 
 struct ProductsSection: View {
     
+    @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<Transactions>
     @Binding var openProductDetailsPage: Bool
     @Binding var openInstantTransferPage: Bool
-    
+    @Binding var selectedTransaction: Transactions?
+
     var body: some View {
-        VStack() {
-            ForEach(products, id: \.id) { product in
+        VStack {
+            ForEach(transactions, id: \.id) { transaction in
                 Button {
-                    if product.type == .received {
+                    selectedTransaction = transaction
+                    guard let type = transaction.type else { return }
+                    if type == ProductType.received.rawValue {
                         openProductDetailsPage.toggle()
                     } else {
                         openInstantTransferPage.toggle()
                     }
                 } label: {
-                    ProductRowView(product: product)
+                    ProductRowView(product: transaction)
                 }
             }
         }
-        .background(.gray.opacity(0.2))
+        .background(Color.gray.opacity(0.2))
         .cornerRadius(10)
     }
 }

@@ -9,11 +9,11 @@ import SwiftUI
 
 struct InstantTransferPage: View {
     
-    var product: Product
+    var product: Transactions
     
     var body: some View {
         VStack {
-            Text(product.price)
+            Text(product.price ?? "NaN")
                 .foregroundStyle(.white)
                 .font(.system(size: 60))
                 .bold()
@@ -25,7 +25,7 @@ struct InstantTransferPage: View {
             }
             
             HStack {
-                Text(product.date)
+                Text(product.date ?? "NaN")
                     .foregroundStyle(.gray)
                     .font(.title3)
                 Text("5:52 PM")
@@ -86,7 +86,7 @@ struct InstantTransferPage: View {
                     .foregroundStyle(.gray)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(product.id)
+                Text(product.id ?? "NaN")
                     .foregroundStyle(.white)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -103,6 +103,6 @@ struct InstantTransferPage: View {
     }
 }
 
-#Preview {
-    InstantTransferPage(product: products[0])
-}
+//#Preview {
+//    InstantTransferPage(product: products[0])
+//}
