@@ -35,11 +35,21 @@ struct ProductDetailPage: View {
                             .padding(.horizontal)
                             .padding(.top, 20)
                         Spacer()
-                        Text(product.price ?? "NaN")
-                            .foregroundStyle(.white)
-                            .font(.title2)
-                            .padding(.trailing, 5)
-                            .padding(.top, 20)
+                        if let type = product.type, type == ProductType.cancel.rawValue {
+                            Text(product.price ?? "NaN")
+                                .foregroundStyle(.white)
+                                .font(.title2)
+                                .padding(.trailing, 5)
+                                .padding(.top, 20)
+                                .strikethrough()
+                        } else {
+                            Text(product.price ?? "NaN")
+                                .foregroundStyle(.white)
+                                .font(.title2)
+                                .padding(.trailing, 5)
+                                .padding(.top, 20)
+                        }
+                        
                         Image(systemName: "chevron.right")
                             .padding(.trailing, 20)
                             .foregroundStyle(.gray)
