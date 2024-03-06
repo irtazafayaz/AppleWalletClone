@@ -81,7 +81,7 @@ struct ReceivedProductDetailPage: View {
                     .foregroundStyle(.gray)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(product.transactionId)
+                Text(product.id)
                     .foregroundStyle(.white)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
