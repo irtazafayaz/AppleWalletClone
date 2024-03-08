@@ -23,23 +23,22 @@ struct HomePage: View {
         NavigationStack {
             VStack {
                 TopNav(showNavBar: $showNavBar)
-                ScrollView {
-                    CardViewSection()
-                    if showNavBar {
-                        BalanceSection()
-                        LatestTransactionsSection {
-                            generateRandomTransaction()
+                CardViewSection()
+                    .simultaneousGesture(DragGesture().onChanged({
+                        let isScrollDown = 0 < $0.translation.height
+                        if !isScrollDown {
+                            showNavBar = true
                         }
-                        ProductsSection(openProductDetailsPage: $openProductDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
+                    }))
+                if showNavBar {
+                    BalanceSection()
+                    LatestTransactionsSection {
+                        generateRandomTransaction()
                     }
-                    Spacer()
+                    TransactionDetails(openProductDetailsPage: $openProductDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
                 }
-                .simultaneousGesture(DragGesture().onChanged({
-                    let isScrollDown = 0 < $0.translation.height
-                    if !isScrollDown {
-                        showNavBar = true
-                    }
-                }))
+                Spacer()
+                
             }
             .background(Color("white-black"))
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
@@ -166,50 +165,68 @@ struct LatestTransactionsSection: View {
     }
 }
 
-struct ProductsSection: View {
+struct TransactionDetails: View {
     
     @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<Transactions>
+    @Environment(\.managedObjectContext) var moc
+    
     @Binding var openProductDetailsPage: Bool
     @Binding var openInstantTransferPage: Bool
     @Binding var selectedTransaction: Transactions?
     
     var body: some View {
-        VStack {
-            ForEach(transactions.indices, id: \.self) { index in
-                VStack {
-                    Button {
-                        selectedTransaction = transactions[index]
-                        guard let type = transactions[index].type else { return }
-                        if type == ProductType.received.rawValue {
-                            openProductDetailsPage.toggle()
-                        } else if type == ProductType.instant.rawValue {
-                            openInstantTransferPage.toggle()
-                        }
-                    } label: {
-                        ProductRowView(product: transactions[index])
-                    }
-                    if index != transactions.indices.last {
-                        Divider()
-                            .background(Color.white)
-                            .padding(.horizontal, 10)
-                    }
+        List {
+            ForEach(transactions, id: \.id) { transaction in
+                Button {
+                    openDetailPage(transaction)
+                } label: {
+                    ProductRowView(product: transaction)
                 }
             }
+            .onDelete(perform: delete)
         }
-        .background(Color("white-gray"))
-        .cornerRadius(10)
+        .listStyle(PlainListStyle())
     }
     
-    private func handleTransactionTap(_ transaction: Transactions) {
-        guard let type = transaction.type else { return }
+    func delete(at offsets: IndexSet) {
+        for index in offsets {
+            let language = transactions[index]
+            moc.delete(language)
+        }
+        do {
+            try moc.save()
+        } catch  {
+            print("> Error occured during deleting from core data")
+        }
+    }
+    
+    private func deleteItems2(_ item: Transactions) {
+        if let ndx = transactions.firstIndex(of: item) {
+            moc.delete(transactions[ndx])
+            do {
+                try moc.save()
+            } catch {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    
+    private func openDetailPage(_ transaction: Transactions) {
         selectedTransaction = transaction
+        guard let type = transaction.type else { return }
         if type == ProductType.received.rawValue {
             openProductDetailsPage.toggle()
         } else if type == ProductType.instant.rawValue {
             openInstantTransferPage.toggle()
         }
     }
+    
+    
 }
+
 
 #Preview {
     HomePage()
