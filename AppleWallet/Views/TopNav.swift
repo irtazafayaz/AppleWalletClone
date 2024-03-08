@@ -20,13 +20,13 @@ struct TopNav: View {
                         showNavBar = false
                     }) {
                         Text("Done")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title3)
                     }
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "magnifyingglass")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title2)
                     }
                     Menu {
@@ -52,7 +52,7 @@ struct TopNav: View {
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title2)
                     }
                 }
@@ -61,18 +61,18 @@ struct TopNav: View {
                 HStack {
                     Button(action: {}) {
                         Text("Wallet")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title)
                     }
                     Spacer()
                     Button(action: {}) {
                         Image(systemName: "archivebox.circle")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title2)
                     }
                     Button(action: {}) {
                         Image(systemName: "plus.circle.fill")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title2)
                     }
                 }

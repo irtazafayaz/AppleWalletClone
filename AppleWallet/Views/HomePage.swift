@@ -41,8 +41,7 @@ struct HomePage: View {
                     }
                 }))
             }
-            .background(.black)
-            
+            .background(Color("white-black"))
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
                 if let selectedTransaction = selectedTransaction {
                     ProductDetailPage(product: selectedTransaction)
@@ -53,7 +52,7 @@ struct HomePage: View {
                     InstantTransferPage(product: selectedTransaction)
                 }
             })
-            .toolbarBackground(Color.black)
+            .toolbarBackground(Color("white-black"))
         }
     }
     
@@ -120,22 +119,22 @@ struct BalanceSection: View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Balance")
-                    .foregroundStyle(.white)
-                Text("$0.00")
+                    .foregroundStyle(Color("black-white"))
+                Text("$40.00")
                     .font(.title2)
                     .bold()
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
             }
             Spacer()
             Text("Send or Request")
-                .foregroundStyle(.black)
+                .foregroundColor(Color("white-black"))
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
-                .background(.white)
+                .background(Color("black-white"))
                 .clipShape(Capsule())
         }
         .padding()
-        .background(.gray.opacity(0.2))
+        .background(Color("white-gray"))
         .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
@@ -147,8 +146,9 @@ struct LatestTransactionsSection: View {
     var body: some View {
         HStack {
             Text("Latest Transactions")
-                .font(.title)
-                .foregroundStyle(.white)
+                .font(.title2)
+                .bold()
+                .foregroundStyle(Color("black-white"))
                 .padding(.horizontal, 10)
                 .padding(.vertical, 5)
             Spacer()
@@ -157,7 +157,7 @@ struct LatestTransactionsSection: View {
                 action()
             } label: {
                 Image(systemName: "line.3.horizontal.decrease.circle")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title2)
             }
             
@@ -172,7 +172,7 @@ struct ProductsSection: View {
     @Binding var openProductDetailsPage: Bool
     @Binding var openInstantTransferPage: Bool
     @Binding var selectedTransaction: Transactions?
-
+    
     var body: some View {
         VStack {
             ForEach(transactions.indices, id: \.self) { index in
@@ -191,25 +191,26 @@ struct ProductsSection: View {
                     if index != transactions.indices.last {
                         Divider()
                             .background(Color.white)
-                            .frame(height: 2)
                             .padding(.horizontal, 10)
                     }
                 }
             }
         }
-        .background(Color.gray.opacity(0.2))
+        .background(Color("white-gray"))
         .cornerRadius(10)
     }
+    
+    private func handleTransactionTap(_ transaction: Transactions) {
+        guard let type = transaction.type else { return }
+        selectedTransaction = transaction
+        if type == ProductType.received.rawValue {
+            openProductDetailsPage.toggle()
+        } else if type == ProductType.instant.rawValue {
+            openInstantTransferPage.toggle()
+        }
+    }
 }
-
-
-
-
-
-
 
 #Preview {
     HomePage()
 }
-
-

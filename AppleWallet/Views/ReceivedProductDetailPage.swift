@@ -14,7 +14,7 @@ struct ReceivedProductDetailPage: View {
     var body: some View {
         VStack {
             Text(product.price ?? "NaN")
-                .foregroundStyle(.white)
+                .foregroundStyle(Color("black-white"))
                 .bold()
                 .font(.system(size: 60))
 
@@ -38,7 +38,7 @@ struct ReceivedProductDetailPage: View {
             
             VStack(alignment: .leading) {
                 Text("Status: Completed")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title3)
                     .bold()
                 Text("Sent from \(product.title ?? "NaN")")
@@ -49,18 +49,18 @@ struct ReceivedProductDetailPage: View {
                     .padding(.horizontal)
                 HStack {
                     Text("Received")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                         .bold()
                     Spacer()
                     Text(product.price ?? "NaN")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                         .bold()
                 }
             }
             .padding()
-            .background(Color.gray.opacity(0.2))
+            .background(Color("white-gray"))
             .cornerRadius(8)
             .padding(.top, 10)
             
@@ -72,7 +72,7 @@ struct ReceivedProductDetailPage: View {
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(Color.gray.opacity(0.2))
+            .background(Color("white-gray"))
             .cornerRadius(8)
             .padding(.top, 10)
             
@@ -82,13 +82,13 @@ struct ReceivedProductDetailPage: View {
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(product.id ?? "NaN")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(Color.gray.opacity(0.2))
+            .background(Color("white-gray"))
             .cornerRadius(8)
             .padding(.top, 10)
             
@@ -96,7 +96,7 @@ struct ReceivedProductDetailPage: View {
             
             Spacer()
         }
-        .background(.black)
+        .background(Color("white-black"))
     }
 }
 

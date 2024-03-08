@@ -28,7 +28,7 @@ struct InstantTransferPage: View {
     var body: some View {
         VStack {
             Text(product.price ?? "NaN")
-                .foregroundStyle(.white)
+                .foregroundStyle(Color("black-white"))
                 .font(.system(size: 60))
                 .bold()
             
@@ -49,7 +49,7 @@ struct InstantTransferPage: View {
             
             VStack(alignment: .leading) {
                 Text("Status: Cleared")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title3)
                     .bold()
                 Text("Transfered from Apple Cash")
@@ -57,41 +57,41 @@ struct InstantTransferPage: View {
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
-                    .padding(.horizontal)
+                    .foregroundColor(Color("black-white"))
                 HStack {
                     Text("Transferred to Card")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                     Spacer()
                     Text(getFees())
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                 }
                 HStack {
                     Text("Instant Transfer Fee")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                     Spacer()
                     Text("$0.38")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                 }
                 Divider()
-                    .padding(.horizontal)
+                    .foregroundColor(Color("black-white"))
                 HStack {
                     Text("Total")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                         .bold()
                     Spacer()
                     Text(product.price ?? "NaN")
-                        .foregroundStyle(.white)
+                        .foregroundStyle(Color("black-white"))
                         .font(.title3)
                         .bold()
                 }
             }
             .padding()
-            .background(Color.gray.opacity(0.2))
+            .background(Color("white-black"))
             .cornerRadius(8)
             .padding(.top, 10)
             
@@ -101,19 +101,19 @@ struct InstantTransferPage: View {
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(product.id ?? "NaN")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(Color.gray.opacity(0.2))
+            .background(Color("white-black"))
             .cornerRadius(8)
             .padding(.top, 10)
             
             Spacer()
         }
-        .background(.black)
+        .background(Color("white-black"))
     }
 }
 

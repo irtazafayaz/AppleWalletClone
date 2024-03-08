@@ -21,7 +21,7 @@ struct ProductDetailPage: View {
                     .frame(width: 100, height: 100)
                 
                 Text(product.title ?? "NaN")
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color("black-white"))
                     .font(.title)
                     .bold()
                     .frame(maxWidth: .infinity)
@@ -30,21 +30,21 @@ struct ProductDetailPage: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text(product.date ?? "NaN")
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color("black-white"))
                             .font(.title2)
                             .padding(.horizontal)
                             .padding(.top, 20)
                         Spacer()
                         if let type = product.type, type == ProductType.cancel.rawValue {
                             Text(product.price ?? "NaN")
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color("black-white"))
                                 .font(.title2)
                                 .padding(.trailing, 5)
                                 .padding(.top, 20)
                                 .strikethrough()
                         } else {
                             Text(product.price ?? "NaN")
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color("black-white"))
                                 .font(.title2)
                                 .padding(.trailing, 5)
                                 .padding(.top, 20)
@@ -64,13 +64,13 @@ struct ProductDetailPage: View {
                 .onTapGesture {
                     openReceivedDetailsPage.toggle()
                 }
-                .background(Color.gray.opacity(0.2))
+                .background(Color("white-gray"))
                 .cornerRadius(8)
                 .padding(.top, 10)
                 
                 Spacer()
             }
-            .background(.black)
+            .background(Color("white-black"))
             .navigationDestination(isPresented: $openReceivedDetailsPage, destination: {
                 ReceivedProductDetailPage(product: product)
             })

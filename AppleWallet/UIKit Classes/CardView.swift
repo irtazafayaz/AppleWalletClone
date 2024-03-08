@@ -178,7 +178,11 @@ class CardView: UIView {
     // MARK: - Basic Setup
     
     func setupSubviews() {
-        backgroundColor = UIColor.gray.withAlphaComponent(0.2)
+        if let backgroundColor = UIColor(named: "black-gray") {
+            self.backgroundColor = backgroundColor
+        } else {
+            self.backgroundColor = .white
+        }
         layer.cornerCurve = .continuous
         layer.cornerRadius = 12
         layer.masksToBounds = true
