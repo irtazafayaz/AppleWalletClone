@@ -91,7 +91,7 @@ struct InstantTransferPage: View {
                 }
             }
             .padding()
-            .background(Color("white-black"))
+            .background(Color("white-gray"))
             .cornerRadius(8)
             .padding(.top, 10)
             
@@ -107,7 +107,7 @@ struct InstantTransferPage: View {
             }
             .padding(.vertical, 10)
             .padding(.horizontal)
-            .background(Color("white-black"))
+            .background(Color("white-gray"))
             .cornerRadius(8)
             .padding(.top, 10)
             
