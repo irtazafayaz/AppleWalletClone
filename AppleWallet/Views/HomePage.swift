@@ -10,6 +10,7 @@ import SwiftUI
 struct HomePage: View {
     
     @State private var openProductDetailsPage: Bool = false
+    @State private var openSentDetailsPage: Bool = false
     @State private var openInstantTransferPage: Bool = false
     @State private var selectedProduct: Product = products[0]
     @State private var selectedTransaction: Transactions?
@@ -32,15 +33,16 @@ struct HomePage: View {
                     }))
                 if showNavBar {
                     BalanceSection()
+                        .padding(.top, 10)
                     LatestTransactionsSection {
                         generateRandomTransaction()
                     }
-                    TransactionDetails(openProductDetailsPage: $openProductDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
+                    TransactionDetails(openProductDetailsPage: $openProductDetailsPage, openSentProductDetailsPage: $openSentDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
                 }
                 Spacer()
                 
             }
-            .background(Color("white-black"))
+            .background(Color("app-background"))
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
                 if let selectedTransaction = selectedTransaction {
                     ProductDetailPage(product: selectedTransaction)
@@ -51,12 +53,17 @@ struct HomePage: View {
                     InstantTransferPage(product: selectedTransaction)
                 }
             })
-            .toolbarBackground(Color("white-black"))
+            .navigationDestination(isPresented: $openSentDetailsPage, destination: {
+                if let selectedTransaction = selectedTransaction {
+                    SentProductDetailPage(product: selectedTransaction)
+                }
+            })
+            .toolbarBackground(Color("app-background"))
         }
     }
     
     func generateRandomTransaction() {
-        let randomNumber = Int.random(in: 0...2)
+        let randomNumber = Int.random(in: 0...3)
         switch(randomNumber) {
         case 0:
             addTransactions(obj:Product(
@@ -81,6 +88,14 @@ struct HomePage: View {
                 date: "2/6/24",
                 price: "$39.99",
                 type: .cancel
+            ))
+        case 3:
+            addTransactions(obj: Product(
+                title: "+1 (209) 219-6208",
+                description: "Sent",
+                date: "2/6/24",
+                price: "$39.99",
+                type: .sent
             ))
         default:
             addTransactions(obj:Product(
@@ -171,6 +186,7 @@ struct TransactionDetails: View {
     @Environment(\.managedObjectContext) var moc
     
     @Binding var openProductDetailsPage: Bool
+    @Binding var openSentProductDetailsPage: Bool
     @Binding var openInstantTransferPage: Bool
     @Binding var selectedTransaction: Transactions?
     
@@ -182,10 +198,13 @@ struct TransactionDetails: View {
                 } label: {
                     ProductRowView(product: transaction)
                 }
+                .listRowBackground(Color("white-gray"))
             }
             .onDelete(perform: delete)
         }
+        .listRowBackground(Color("white-gray"))
         .listStyle(PlainListStyle())
+        .cornerRadius(10)
     }
     
     func delete(at offsets: IndexSet) {
@@ -200,20 +219,6 @@ struct TransactionDetails: View {
         }
     }
     
-    private func deleteItems2(_ item: Transactions) {
-        if let ndx = transactions.firstIndex(of: item) {
-            moc.delete(transactions[ndx])
-            do {
-                try moc.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    
     private func openDetailPage(_ transaction: Transactions) {
         selectedTransaction = transaction
         guard let type = transaction.type else { return }
@@ -221,6 +226,8 @@ struct TransactionDetails: View {
             openProductDetailsPage.toggle()
         } else if type == ProductType.instant.rawValue {
             openInstantTransferPage.toggle()
+        } else if type == ProductType.instant.rawValue {
+            openSentProductDetailsPage.toggle()
         }
     }
     

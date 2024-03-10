@@ -11,6 +11,7 @@ struct ProductDetailPage: View {
     
     var product: Transactions
     @State private var openReceivedDetailsPage: Bool = false
+    @State private var openSentDetailsPage: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -22,7 +23,7 @@ struct ProductDetailPage: View {
                 
                 Text(product.title ?? "NaN")
                     .foregroundStyle(Color("black-white"))
-                    .font(.title)
+                    .font(.system(size: 26))
                     .bold()
                     .frame(maxWidth: .infinity)
                 
@@ -31,21 +32,22 @@ struct ProductDetailPage: View {
                     HStack {
                         Text(product.date ?? "NaN")
                             .foregroundStyle(Color("black-white"))
-                            .font(.title2)
+                            .font(.system(size: 18))
+                            .bold()
                             .padding(.horizontal)
                             .padding(.top, 20)
                         Spacer()
                         if let type = product.type, type == ProductType.cancel.rawValue {
                             Text(product.price ?? "NaN")
                                 .foregroundStyle(Color("black-white"))
-                                .font(.title2)
+                                .font(.system(size: 18))
                                 .padding(.trailing, 5)
                                 .padding(.top, 20)
                                 .strikethrough()
                         } else {
                             Text(product.price ?? "NaN")
                                 .foregroundStyle(Color("black-white"))
-                                .font(.title2)
+                                .font(.system(size: 18))
                                 .padding(.trailing, 5)
                                 .padding(.top, 20)
                         }
@@ -60,9 +62,14 @@ struct ProductDetailPage: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         .padding(.bottom)
+                        .font(.system(size: 16))
                 }
                 .onTapGesture {
-                    openReceivedDetailsPage.toggle()
+                    if product.type == ProductType.sent.rawValue {
+                        openSentDetailsPage.toggle()
+                    } else if product.type == ProductType.received.rawValue {
+                        openReceivedDetailsPage.toggle()
+                    }
                 }
                 .background(Color("white-gray"))
                 .cornerRadius(8)
@@ -70,10 +77,14 @@ struct ProductDetailPage: View {
                 
                 Spacer()
             }
-            .background(Color("white-black"))
+            .background(Color("app-background"))
             .navigationDestination(isPresented: $openReceivedDetailsPage, destination: {
                 ReceivedProductDetailPage(product: product)
             })
+            .navigationDestination(isPresented: $openReceivedDetailsPage, destination: {
+                SentProductDetailPage(product: product)
+            })
+            .toolbarRole(.editor)
         }
     }
 }

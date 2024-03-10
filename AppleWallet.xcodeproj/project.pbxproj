@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		92AEAA1CB6FC29294737FB78 /* Pods_AppleWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBB08B3F36BE4EACA34E67F /* Pods_AppleWallet.framework */; };
+		D53ED08A2B9E59B400334348 /* SentProductDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D53ED0892B9E59B400334348 /* SentProductDetailPage.swift */; };
 		D565A0412B99159200DC242C /* Transactions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D565A03F2B99159200DC242C /* Transactions.xcdatamodeld */; };
 		D565A0442B9915F300DC242C /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D565A0432B9915F300DC242C /* DataController.swift */; };
 		D565A0462B99164E00DC242C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D565A0452B99164E00DC242C /* ViewModel.swift */; };
@@ -35,6 +36,7 @@
 		7FBB08B3F36BE4EACA34E67F /* Pods_AppleWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85771B3B0E02B19E9BE14C9B /* Pods-AppleWallet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWallet.release.xcconfig"; path = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet.release.xcconfig"; sourceTree = "<group>"; };
 		A4D640B78783FA0E6A33878B /* Pods-AppleWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleWallet.debug.xcconfig"; path = "Target Support Files/Pods-AppleWallet/Pods-AppleWallet.debug.xcconfig"; sourceTree = "<group>"; };
+		D53ED0892B9E59B400334348 /* SentProductDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentProductDetailPage.swift; sourceTree = "<group>"; };
 		D565A0402B99159200DC242C /* Transactions.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transactions.xcdatamodel; sourceTree = "<group>"; };
 		D565A0432B9915F300DC242C /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		D565A0452B99164E00DC242C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */,
 				D565A0472B9919B000DC242C /* TopNav.swift */,
 				D565A0492B991B9E00DC242C /* ProductRowView.swift */,
+				D53ED0892B9E59B400334348 /* SentProductDetailPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D57DD7B42B91FD6F008532AE /* DotView.swift in Sources */,
 				D57DD7E42B93CDCE008532AE /* InstantTransferPage.swift in Sources */,
 				D57DD7E02B9374E4008532AE /* ProductDetailPage.swift in Sources */,
+				D53ED08A2B9E59B400334348 /* SentProductDetailPage.swift in Sources */,
 				D57DD7DE2B93732C008532AE /* CardDetailsPage.swift in Sources */,
 				D565A0462B99164E00DC242C /* ViewModel.swift in Sources */,
 				D565A04A2B991B9E00DC242C /* ProductRowView.swift in Sources */,

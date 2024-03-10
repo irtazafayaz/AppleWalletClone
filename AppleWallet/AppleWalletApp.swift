@@ -11,7 +11,8 @@ import SwiftUI
 struct AppleWalletApp: App {
     
     @StateObject private var dataController = DataController()
-    
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some Scene {
         WindowGroup {
             ContentView()

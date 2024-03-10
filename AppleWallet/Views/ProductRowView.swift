@@ -27,7 +27,7 @@ struct ProductRowView: View {
                         Spacer()
                         if let type = product.type, type == ProductType.cancel.rawValue {
                             Text(product.price ?? "NaN")
-                                .foregroundStyle(Color("black-white"))
+                                .foregroundStyle(.gray)
                                 .strikethrough()
                         } else {
                             Text(product.price ?? "NaN")
@@ -36,7 +36,7 @@ struct ProductRowView: View {
                         
                         Image(systemName: "chevron.right")
                             .foregroundStyle(.gray)
-                        
+                            .padding(.leading, 5)
                     }
                     
                     Text(product.desc ?? "NaN")

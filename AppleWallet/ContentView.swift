@@ -16,7 +16,7 @@ struct ContentView: View {
             HomePage()
         }
         .padding()
-        .background(Color("white-black"))
+        .background(Color("app-background"))
     }
 }
 

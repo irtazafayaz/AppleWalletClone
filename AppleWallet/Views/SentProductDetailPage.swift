@@ -1,39 +1,28 @@
 //
-//  InstantTransferPage.swift
+//  SentProductDetailPage.swift
 //  AppleWallet
 //
-//  Created by Irtaza Fiaz on 03/03/2024.
+//  Created by Irtaza Fiaz on 11/03/2024.
 //
 
 import SwiftUI
 
-struct InstantTransferPage: View {
+struct SentProductDetailPage: View {
     
     var product: Transactions
-    
-    func getFees() -> String {
-        if let price = product.price {
-            let priceWithoutDollarSign = price.replacingOccurrences(of: "$", with: "")
-            if let priceNum = Double(priceWithoutDollarSign) {
-                return String("$\(priceNum - 0.38)")
-            } else {
-                return "NaN"
-            }
-        } else {
-            return "NaN"
-        }
-    }
-
     
     var body: some View {
         VStack {
             Text(product.price ?? "NaN")
                 .foregroundStyle(Color("black-white"))
-                .font(.system(size: 60))
                 .bold()
-            
+                .font(.system(size: 60))
+
             HStack {
-                Text("Instant Transfer")
+                Text("To")
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 18))
+                Text(product.title ?? "NaN")
                     .foregroundStyle(.gray)
                     .font(.system(size: 18))
             }
@@ -48,11 +37,11 @@ struct InstantTransferPage: View {
             }
             
             VStack(alignment: .leading) {
-                Text("Status: Cleared")
+                Text("Status: Completed")
                     .foregroundStyle(Color("black-white"))
                     .font(.system(size: 18))
                     .bold()
-                Text("Transfered from Apple Cash")
+                Text("Sent to \(product.title ?? "NaN")")
                     .foregroundStyle(.gray)
                     .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -60,28 +49,7 @@ struct InstantTransferPage: View {
                     .foregroundColor(Color("black-white"))
                     .padding(.vertical,5)
                 HStack {
-                    Text("Transferred to Card")
-                        .foregroundStyle(Color("black-white"))
-                        .font(.system(size: 18))
-                    Spacer()
-                    Text(getFees())
-                        .foregroundStyle(Color("black-white"))
-                        .font(.system(size: 18))
-                }
-                HStack {
-                    Text("Instant Transfer Fee")
-                        .foregroundStyle(Color("black-white"))
-                        .font(.system(size: 18))
-                    Spacer()
-                    Text("$0.38")
-                        .foregroundStyle(Color("black-white"))
-                        .font(.system(size: 18))
-                }
-                Divider()
-                    .foregroundColor(Color("black-white"))
-                    .padding(.vertical,5)
-                HStack {
-                    Text("Total")
+                    Text("Sent")
                         .foregroundStyle(Color("black-white"))
                         .font(.system(size: 18))
                         .bold()
@@ -98,12 +66,8 @@ struct InstantTransferPage: View {
             .padding(.top, 10)
             
             VStack(alignment: .leading) {
-                Text("Transaction ID")
-                    .foregroundStyle(.gray)
-                    .font(.system(size: 18))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(product.id ?? "NaN")
-                    .foregroundStyle(Color("black-white"))
+                Text("Send Again")
+                    .foregroundStyle(.blue)
                     .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -113,13 +77,30 @@ struct InstantTransferPage: View {
             .cornerRadius(8)
             .padding(.top, 10)
             
+            VStack(alignment: .leading) {
+                Text("Transaction ID")
+                    .foregroundStyle(.gray)
+                    .font(.system(size: 16))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(product.id ?? "NaN")
+                    .foregroundStyle(Color("black-white"))
+                    .font(.system(size: 16))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.vertical, 10)
+            .padding(.horizontal)
+            .background(Color("white-gray"))
+            .cornerRadius(8)
+            .padding(.top, 10)
+            
+            
+            
             Spacer()
         }
         .background(Color("app-background"))
-        .toolbarRole(.editor)
     }
 }
 
 //#Preview {
-//    InstantTransferPage(product: products[0])
+//    SentProductDetailPage()
 //}

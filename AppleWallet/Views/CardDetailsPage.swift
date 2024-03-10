@@ -79,6 +79,7 @@ struct CardDetailsPage: View {
                     .foregroundStyle(.gray)
                     .font(.caption)
                 
+                
                 VStack(alignment: .leading) {
                     Text("Add Money")
                         .foregroundStyle(.blue)
@@ -86,7 +87,6 @@ struct CardDetailsPage: View {
                         .padding(.horizontal)
                         .padding(.top, 10)
                     Divider()
-                        .frame(height: 2)
                         .padding(.horizontal)
                         .foregroundStyle(Color("black-white"))
                     Text("Transfer to Bank")
@@ -97,17 +97,18 @@ struct CardDetailsPage: View {
                 }
                 .background(Color("white-gray"))
                 .cornerRadius(8)
-                .padding(.top, 5)
+                .padding(.top, 10)
                 
                 Button(action: {}) {
                     Text("Set Up Auto Reload")
                         .padding(.horizontal)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical)
                         .background(Color("white-gray"))
                         .cornerRadius(8)
-                    
                 }
                 .padding(.top, 10)
+                
                 Text("Your balance can be used to send money or make purchases with Apple Pay")
                     .foregroundStyle(.gray)
                     .font(.caption)
@@ -119,7 +120,6 @@ struct CardDetailsPage: View {
                         .padding(.horizontal)
                         .padding(.top, 10)
                     Divider()
-                        .frame(height: 2)
                         .padding(.horizontal)
                         .foregroundStyle(Color("black-white"))
                     Text("Manually Accept Payments")
@@ -130,6 +130,7 @@ struct CardDetailsPage: View {
                 }
                 .background(Color("white-gray"))
                 .cornerRadius(8)
+                .padding(.top, 10)
                 
                 VStack(alignment: .leading) {
                     Text("Bank Account")
@@ -153,7 +154,6 @@ struct CardDetailsPage: View {
                     .padding(.horizontal)
                     .padding(.top, 10)
                     Divider()
-                        .frame(height: 2)
                         .padding(.horizontal)
                     Text("Express Transit Setting")
                         .foregroundStyle(.blue)
@@ -209,15 +209,21 @@ struct CardDetailsPage: View {
                 .cornerRadius(8)
                 .padding(.top, 10)
                 
+                
                 VStack(alignment: .leading) {
                     Text("Privacy Policy")
                         .foregroundStyle(.blue)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.top, 10)
+                    Divider()
+                        .padding(.horizontal)
+                        .foregroundStyle(Color("black-white"))
                     Text("Terms and Conditions")
                         .foregroundStyle(.blue)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
+                        .padding(.horizontal)
+                        .padding(.bottom, 10)
                 }
                 .background(Color("white-gray"))
                 .cornerRadius(8)
@@ -225,10 +231,10 @@ struct CardDetailsPage: View {
                 
                 
             }
-            .toolbarBackground(Color("white-black"))
+            .toolbarBackground(Color("app-background"))
         }
-        .toolbarBackground(Color("white-black"))
-        .background(Color("white-black"))
+        .toolbarBackground(Color("app-background"))
+        .background(Color("app-background"))
     }
 }
 

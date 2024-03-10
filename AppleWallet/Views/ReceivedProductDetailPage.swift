@@ -19,43 +19,44 @@ struct ReceivedProductDetailPage: View {
                 .font(.system(size: 60))
 
             HStack {
-                Text("From ")
+                Text("From")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 18))
                 Text(product.title ?? "NaN")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 18))
             }
             
             HStack {
                 Text(product.date ?? "NaN")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 18))
                 Text("5:52 PM")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 18))
             }
             
             VStack(alignment: .leading) {
                 Text("Status: Completed")
                     .foregroundStyle(Color("black-white"))
-                    .font(.title3)
+                    .font(.system(size: 18))
                     .bold()
                 Text("Sent from \(product.title ?? "NaN")")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Divider()
-                    .padding(.horizontal)
+                    .foregroundColor(Color("black-white"))
+                    .padding(.vertical,5)
                 HStack {
                     Text("Received")
                         .foregroundStyle(Color("black-white"))
-                        .font(.title3)
+                        .font(.system(size: 18))
                         .bold()
                     Spacer()
                     Text(product.price ?? "NaN")
                         .foregroundStyle(Color("black-white"))
-                        .font(.title3)
+                        .font(.system(size: 18))
                         .bold()
                 }
             }
@@ -67,7 +68,7 @@ struct ReceivedProductDetailPage: View {
             VStack(alignment: .leading) {
                 Text("Request Again")
                     .foregroundStyle(.blue)
-                    .font(.title3)
+                    .font(.system(size: 18))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.vertical, 10)
@@ -79,11 +80,11 @@ struct ReceivedProductDetailPage: View {
             VStack(alignment: .leading) {
                 Text("Transaction ID")
                     .foregroundStyle(.gray)
-                    .font(.title3)
+                    .font(.system(size: 16))
                     .frame(maxWidth: .infinity, alignment: .leading)
                 Text(product.id ?? "NaN")
                     .foregroundStyle(Color("black-white"))
-                    .font(.title3)
+                    .font(.system(size: 16))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(.vertical, 10)
@@ -96,7 +97,7 @@ struct ReceivedProductDetailPage: View {
             
             Spacer()
         }
-        .background(Color("white-black"))
+        .background(Color("app-background"))
     }
 }
 

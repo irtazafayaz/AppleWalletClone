@@ -11,6 +11,7 @@ enum ProductType: String {
     case instant = "instant"
     case received = "received"
     case cancel = "cancel"
+    case sent = "sent"
 }
 
 struct Product {
