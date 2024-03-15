@@ -43,6 +43,7 @@ struct HomePage: View {
                 
             }
             .background(Color("app-background"))
+            .navigationBarBackButtonHidden()
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
                 if let selectedTransaction = selectedTransaction {
                     ProductDetailPage(product: selectedTransaction)

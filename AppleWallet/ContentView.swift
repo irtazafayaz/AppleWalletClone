@@ -10,10 +10,22 @@ import CoreMotion
 struct ContentView: View {
     
     @State private var focalPoint = CGPoint(x: 0, y: 0)
-    
+    @State private var showHomeScreen: Bool = false
+    @EnvironmentObject var sessionManager: SessionManager
+
     var body: some View {
         VStack {
-            HomePage()
+            switch sessionManager.authState {
+            case .home:
+                HomePage()
+            case .login:
+                LoginView()
+            }
+        }
+        .onAppear {
+            if UserDefaults.standard.bool(forKey: "is-user-logged-in") == true {
+                sessionManager.authState = .home
+            }
         }
         .padding()
         .background(Color("app-background"))
