@@ -85,21 +85,14 @@ struct TransactionPopupView: View {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         let formattedDate = dateFormatter.string(from: transactionDate)
-    
-        let newTransaction = Product(
-            title: title,
-            description: selectedType.rawValue,
-            date: formattedDate,
-            price: balance,
-            type: selectedType
-        )
         
         let transaction = Transactions(context: moc)
-        transaction.title = newTransaction.title
-        transaction.desc = newTransaction.description
-        transaction.price = newTransaction.price
-        transaction.date = newTransaction.date
-        transaction.type = newTransaction.type.rawValue
+        transaction.id = UUID().uuidString
+        transaction.title = title
+        transaction.desc = selectedType.rawValue
+        transaction.price = balance
+        transaction.date = formattedDate
+        transaction.type = selectedType.rawValue
         
         guard let selectedImage = image else { return }
         if let imageData = selectedImage.jpegData(compressionQuality: 1.0) {
@@ -107,7 +100,6 @@ struct TransactionPopupView: View {
         }
 
         try? moc.save()
-        
         isPresented = false
     }
 }
