@@ -16,7 +16,7 @@ struct TransactionPopupView: View {
     @State private var title: String = ""
     @State private var balance: String = "$"
     @State private var transactionDate = Date()
-
+    
     @State private var image: UIImage?
     @State private var showImagePicker = false
     
@@ -26,24 +26,28 @@ struct TransactionPopupView: View {
                 
                 Section(header: Text("Transaction Details")) {
                     
-                    if let selectedImage = image {
-                        Image(uiImage: selectedImage)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .clipShape(Circle())
-                            .onTapGesture {
-                                showImagePicker = true
-                            }
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .foregroundColor(.gray)
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .onTapGesture {
-                                showImagePicker = true
-                            }
+                    VStack {
+                        if let selectedImage = image {
+                            Image(uiImage: selectedImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .clipShape(Circle())
+                                .onTapGesture {
+                                    showImagePicker = true
+                                }
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .foregroundColor(.gray)
+                                .frame(width: 100, height: 100, alignment: .center)
+                                .onTapGesture {
+                                    showImagePicker = true
+                                }
+                        }
                     }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding()
                     
                     TextField("Title", text: $title)
                     
@@ -57,7 +61,7 @@ struct TransactionPopupView: View {
                     TextField("Balance", text: $balance)
                         .keyboardType(.decimalPad)
                     
-                    DatePicker("Date", selection: $transactionDate, displayedComponents: .date)
+                    DatePicker("Date", selection: $transactionDate, displayedComponents: [.date, .hourAndMinute])
                 }
                 
                 Button("Add Transaction") {
@@ -83,7 +87,7 @@ struct TransactionPopupView: View {
     
     private func addTransaction() {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
+        dateFormatter.dateFormat = "M/d/yy, h:mm a"
         let formattedDate = dateFormatter.string(from: transactionDate)
         
         let transaction = Transactions(context: moc)
@@ -94,11 +98,12 @@ struct TransactionPopupView: View {
         transaction.date = formattedDate
         transaction.type = selectedType.rawValue
         
-        guard let selectedImage = image else { return }
-        if let imageData = selectedImage.jpegData(compressionQuality: 1.0) {
-            transaction.image = imageData
+        if let selectedImage = image {
+            if let imageData = selectedImage.jpegData(compressionQuality: 1.0) {
+                transaction.image = imageData
+            }
         }
-
+        
         try? moc.save()
         isPresented = false
     }
