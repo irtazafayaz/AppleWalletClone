@@ -28,21 +28,16 @@ struct ProductRowView: View {
                         .foregroundColor(.gray)
                         .frame(width: 50, height: 50)
                 }
-
+                
                 VStack(alignment: .leading) {
                     HStack {
                         Text(product.title ?? "NaN")
                             .font(.headline)
                             .foregroundColor(Color("black-white"))
                         Spacer()
-                        if let type = product.type, type == ProductType.cancel.rawValue {
-                            Text(product.price ?? "NaN")
-                                .foregroundStyle(.gray)
-                                .strikethrough()
-                        } else {
-                            Text(product.price ?? "NaN")
-                                .foregroundStyle(Color("black-white"))
-                        }
+                        Text(product.price ?? "NaN")
+                            .foregroundStyle(Color("black-white"))
+                        
                         
                         Image(systemName: "chevron.right")
                             .foregroundStyle(.gray)

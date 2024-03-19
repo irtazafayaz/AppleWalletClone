@@ -16,7 +16,7 @@ struct ProductDetailPage: View {
     @State private var showImagePicker = false
     
     @Environment(\.managedObjectContext) var moc
-
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -64,20 +64,13 @@ struct ProductDetailPage: View {
                             .padding(.horizontal)
                             .padding(.top, 20)
                         Spacer()
-                        if let type = product.type, type == ProductType.cancel.rawValue {
-                            Text(product.price ?? "NaN")
-                                .foregroundStyle(Color("black-white"))
-                                .font(.system(size: 18))
-                                .padding(.trailing, 5)
-                                .padding(.top, 20)
-                                .strikethrough()
-                        } else {
-                            Text(product.price ?? "NaN")
-                                .foregroundStyle(Color("black-white"))
-                                .font(.system(size: 18))
-                                .padding(.trailing, 5)
-                                .padding(.top, 20)
-                        }
+                        
+                        Text(product.price ?? "NaN")
+                            .foregroundStyle(Color("black-white"))
+                            .font(.system(size: 18))
+                            .padding(.trailing, 5)
+                            .padding(.top, 20)
+                        
                         
                         Image(systemName: "chevron.right")
                             .padding(.trailing, 20)
@@ -139,7 +132,7 @@ struct ProductDetailPage: View {
             }
         }
     }
-
+    
 }
 
 //#Preview {

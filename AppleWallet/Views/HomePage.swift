@@ -27,10 +27,16 @@ struct HomePage: View {
             VStack {
                 TopNav(showNavBar: $showNavBar)
                 CardViewSection()
-                    .simultaneousGesture(DragGesture().onChanged({
-                        let isScrollDown = 0 < $0.translation.height
+                    .simultaneousGesture(DragGesture().onChanged({ value in
+                        let isScrollDown = value.translation.height > 0
                         if !isScrollDown {
-                            showNavBar = true
+                            withAnimation(.linear) {
+                                showNavBar = true
+                            }
+                        } else {
+                            withAnimation(.easeInOut) {
+                                showNavBar = false
+                            }
                         }
                     }))
                     .overlay(
@@ -84,52 +90,6 @@ struct HomePage: View {
         }
     }
     
-    func generateRandomTransaction() {
-        let randomNumber = Int.random(in: 0...3)
-        switch(randomNumber) {
-        case 0:
-            addTransactions(obj:Product(
-                title: "+1 (623) 633-6278",
-                description: "Received",
-                date: "20 Hours ago",
-                price: "$19.99",
-                type: .received
-            ))
-        case 1:
-            addTransactions(obj: Product(
-                title: "Copper Debit Card",
-                description: "Instant Transfer",
-                date: "Submitted 2/6/24",
-                price: "$29.99",
-                type: .instant
-            ))
-        case 2:
-            addTransactions(obj: Product(
-                title: "+1 (209) 219-6208",
-                description: "Canceled",
-                date: "2/6/24",
-                price: "$39.99",
-                type: .cancel
-            ))
-        case 3:
-            addTransactions(obj: Product(
-                title: "+1 (209) 219-6208",
-                description: "Sent",
-                date: "2/6/24",
-                price: "$39.99",
-                type: .sent
-            ))
-        default:
-            addTransactions(obj:Product(
-                title: "+1 (623) 633-6278",
-                description: "Received",
-                date: "20 Hours ago",
-                price: "$19.99",
-                type: .received
-            ))
-        }
-    }
-    
     func addTransactions(obj: Product) {
         let transaction = Transactions(context: moc)
         transaction.id = obj.id
@@ -158,7 +118,7 @@ struct BalanceSection: View {
                 Text("Balance")
                     .foregroundStyle(Color("black-white"))
                 Text(cardBalance)
-                    .font(.title2)
+                    .font(.title)
                     .bold()
                     .foregroundStyle(Color("black-white"))
             }
@@ -248,8 +208,6 @@ struct TransactionDetails: View {
         guard let type = transaction.type else { return }
         if type == ProductType.received.rawValue {
             openProductDetailsPage.toggle()
-        } else if type == ProductType.instant.rawValue {
-            openInstantTransferPage.toggle()
         } else if type == ProductType.sent.rawValue {
             openSentProductDetailsPage.toggle()
         }

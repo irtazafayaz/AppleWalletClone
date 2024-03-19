@@ -8,9 +8,7 @@
 import Foundation
 
 enum ProductType: String, CaseIterable {
-    case instant = "Instant"
     case received = "Received"
-    case cancel = "Cancel"
     case sent = "Sent"
 }
 
@@ -25,6 +23,6 @@ struct Product {
 
 let products = [
     Product(title: "+1 (623) 633-6278", description: "Canceled - Received", date: "20 Hours ago", price: "$19.99", type: .received),
-    Product(title: "Copper Debit Card", description: "Instant Transfer", date: "Submitted 2/6/24", price: "$29.99", type: .instant),
-    Product(title: "+1 (209) 219-6208", description: "Received", date: "2/6/24", price: "$39.99", type: .cancel)
+    Product(title: "Copper Debit Card", description: "Instant Transfer", date: "Submitted 2/6/24", price: "$29.99", type: .received),
+    Product(title: "+1 (209) 219-6208", description: "Received", date: "2/6/24", price: "$39.99", type: .received)
 ]

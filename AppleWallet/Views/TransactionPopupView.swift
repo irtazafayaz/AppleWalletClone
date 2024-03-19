@@ -113,6 +113,6 @@ struct TransactionPopupView: View {
 }
 
 
-//#Preview {
-//    TransactionPopupView()
-//}
+#Preview {
+    TransactionPopupView(isPresented: .constant(false))
+}
