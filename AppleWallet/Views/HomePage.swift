@@ -16,7 +16,9 @@ struct HomePage: View {
     @State private var selectedTransaction: Transactions?
     @State private var defaultY: CGFloat = 0
     @State private var showNavBar: Bool = false
-    
+    @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
+    @State private var showingTransactionPopup = false
+
     @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<Transactions>
     @Environment(\.managedObjectContext) var moc
     
@@ -31,19 +33,38 @@ struct HomePage: View {
                             showNavBar = true
                         }
                     }))
+                    .overlay(
+                        ZStack(alignment: .topTrailing) {
+                            Color.clear
+                            TextField("", text: $cardBalance)
+                                .font(.title3)
+                                .padding(12)
+                                .frame(width: 100, alignment: .trailing)
+                                .multilineTextAlignment(.trailing)
+                                .bold()
+                                .foregroundColor(.white)
+                        }
+                    )
                 if showNavBar {
-                    BalanceSection()
+                    BalanceSection(cardBalance: $cardBalance)
                         .padding(.top, 10)
                     LatestTransactionsSection {
-                        generateRandomTransaction()
+                        showingTransactionPopup.toggle()
                     }
                     TransactionDetails(openProductDetailsPage: $openProductDetailsPage, openSentProductDetailsPage: $openSentDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
                 }
                 Spacer()
                 
             }
+            .onChange(of: cardBalance) {
+                UserDefaults.standard.setValue(cardBalance, forKey: "cardBalance")
+            }
             .background(Color("app-background"))
             .navigationBarBackButtonHidden()
+            .sheet(isPresented: $showingTransactionPopup) {
+                TransactionPopupView(isPresented: $showingTransactionPopup)
+                    .environment(\.managedObjectContext, self.moc)
+            }
             .navigationDestination(isPresented: $openProductDetailsPage, destination: {
                 if let selectedTransaction = selectedTransaction {
                     ProductDetailPage(product: selectedTransaction)
@@ -130,12 +151,13 @@ struct CardViewSection: View {
 }
 
 struct BalanceSection: View {
+    @Binding var cardBalance: String
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text("Balance")
                     .foregroundStyle(Color("black-white"))
-                Text("$40.00")
+                Text(cardBalance)
                     .font(.title2)
                     .bold()
                     .foregroundStyle(Color("black-white"))
@@ -203,6 +225,7 @@ struct TransactionDetails: View {
             }
             .onDelete(perform: delete)
         }
+        .scrollIndicators(.hidden)
         .listRowBackground(Color("white-gray"))
         .listStyle(PlainListStyle())
         .cornerRadius(10)
@@ -227,12 +250,10 @@ struct TransactionDetails: View {
             openProductDetailsPage.toggle()
         } else if type == ProductType.instant.rawValue {
             openInstantTransferPage.toggle()
-        } else if type == ProductType.instant.rawValue {
+        } else if type == ProductType.sent.rawValue {
             openSentProductDetailsPage.toggle()
         }
     }
-    
-    
 }
 
 

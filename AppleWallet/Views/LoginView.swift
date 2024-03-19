@@ -75,8 +75,8 @@ struct LoginView: View {
                 
                 Spacer()
             }
-            .padding(.top, 30)
             .ignoresSafeArea(.keyboard)
+            .padding(.top, 30)
         }
         .background(Color("app-background"))
         .toolbarBackground(Color("app-background"))

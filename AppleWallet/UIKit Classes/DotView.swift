@@ -17,6 +17,7 @@ class DotView: UIView {
         let label = UILabel()
         label.text = "↑"
         label.textAlignment = .center
+        label.textColor = .black
         label.backgroundColor = .clear
         label.minimumScaleFactor = 0.1
         label.adjustsFontSizeToFitWidth = true

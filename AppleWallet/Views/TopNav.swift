@@ -31,24 +31,24 @@ struct TopNav: View {
                     }
                     Menu {
                         Button(action: {}) {
-                            Label("Add Money", systemImage: "square.and.pencil")
+                            Label("Add Money", systemImage: "dollarsign.circle")
                         }
                         Button(action: {}) {
-                            Label("Transfer to Bank", systemImage: "trash")
+                            Label("Transfer to Bank", systemImage: "arrowshape.turn.up.right")
                         }
                         Button(action: {}) {
-                            Label("Recurring Payments", systemImage: "trash")
+                            Label("Recurring Payments", systemImage: "clock.arrow.2.circlepath")
                         }
                         Button(action: {}) {
-                            Label("Card Number", systemImage: "trash")
+                            Label("Card Number", systemImage: "creditcard.and.123")
                         }
                         Button(action: {
                             openCardDetailsPage.toggle()
                         }) {
-                            Label("Card Details", systemImage: "trash")
+                            Label("Card Details", systemImage: "info.circle")
                         }
                         Button(action: {}) {
-                            Label("Notifications", systemImage: "trash")
+                            Label("Notifications", systemImage: "bell.badge")
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")
@@ -63,10 +63,11 @@ struct TopNav: View {
                         Text("Wallet")
                             .foregroundStyle(Color("black-white"))
                             .font(.title)
+                            .bold()
                     }
                     Spacer()
                     Button(action: {}) {
-                        Image(systemName: "archivebox.circle")
+                        Image(systemName: "shippingbox.circle.fill")
                             .foregroundStyle(Color("black-white"))
                             .font(.title2)
                     }

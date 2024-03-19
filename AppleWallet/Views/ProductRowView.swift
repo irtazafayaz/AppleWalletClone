@@ -15,10 +15,20 @@ struct ProductRowView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .foregroundColor(.gray)
-                    .frame(width: 50, height: 50)
+                if let imageData = product.image, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.gray)
+                } else {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .foregroundColor(.gray)
+                        .frame(width: 50, height: 50)
+                }
+
                 VStack(alignment: .leading) {
                     HStack {
                         Text(product.title ?? "NaN")

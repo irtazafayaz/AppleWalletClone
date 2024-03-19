@@ -119,7 +119,7 @@ class CardView: UIView {
      The general idea is that starting from the focal point, we start moving out in concentric circles, adding dots at various points on the arc.
      */
     func setupDots() {
-        let rows = 6
+        let rows = 8
         
         for i in 0...rows {
             // Calculating how far a row is from the center row lets us scale down dots that are farther out.
@@ -131,7 +131,7 @@ class CardView: UIView {
             let size = baseSize * scale
             
             // Rows farther out are smaller, so scale down the radius a tiny bit.
-            let radiusAdjustment = mapRange(CGFloat(i), 0, CGFloat(rows), 26, 22)
+            let radiusAdjustment = mapRange(CGFloat(i), 1, CGFloat(rows), 20, 17)
             let radius = 40.0 + CGFloat(i) * radiusAdjustment
             
             // [0, 2*pi] is a full circle.
@@ -151,7 +151,7 @@ class CardView: UIView {
                  ```
                  */
                 let x = radius * sin(angle) + originFocalPoint.x
-                let y = radius * cos(angle) + originFocalPoint.y
+                let y = radius * cos(angle) + originFocalPoint.y + 30
                 
                 let dot = DotView()
                 dot.bounds.size = CGSize(width: size, height: size)
@@ -191,7 +191,7 @@ class CardView: UIView {
         addSubview(balanceLabel)
         
         nameLabel.text = "Cash"
-        balanceLabel.text = "$40"
+        balanceLabel.text = ""
         
         nameLabel.textAlignment = .left
         balanceLabel.textAlignment = .right

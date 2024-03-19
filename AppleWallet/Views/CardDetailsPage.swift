@@ -17,11 +17,11 @@ struct CardDetailsPage: View {
                     .overlay(
                         ZStack(alignment: .topTrailing) {
                             Color.clear
-                            Text("$40")
-                                .font(.title3)
+                            Text(UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
                                 .bold()
                                 .foregroundColor(.white)
-                                .padding(8)
+                                .padding(.vertical, 8)
+                                .padding(.horizontal, 12)
                         }
                     )
                 
@@ -67,7 +67,7 @@ struct CardDetailsPage: View {
                     Text("Balance")
                         .foregroundStyle(Color("black-white"))
                     Spacer()
-                    Text("$0.00")
+                    Text(UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
                         .foregroundStyle(.gray)
                 }
                 .padding()

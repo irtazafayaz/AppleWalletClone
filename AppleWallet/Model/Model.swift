@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum ProductType: String {
-    case instant = "instant"
-    case received = "received"
-    case cancel = "cancel"
-    case sent = "sent"
+enum ProductType: String, CaseIterable {
+    case instant = "Instant"
+    case received = "Received"
+    case cancel = "Cancel"
+    case sent = "Sent"
 }
 
 struct Product {

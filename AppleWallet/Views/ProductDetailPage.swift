@@ -12,14 +12,41 @@ struct ProductDetailPage: View {
     var product: Transactions
     @State private var openReceivedDetailsPage: Bool = false
     @State private var openSentDetailsPage: Bool = false
+    @State private var image: UIImage?
+    @State private var showImagePicker = false
+    
+    @Environment(\.managedObjectContext) var moc
 
     var body: some View {
         NavigationStack {
             VStack {
-                Image(systemName: "person.circle.fill")
-                    .resizable()
-                    .foregroundColor(.gray)
-                    .frame(width: 100, height: 100)
+                if let selectedImage = image {
+                    Image(uiImage: selectedImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            showImagePicker = true
+                        }
+                } else if let imageData = product.image, let uiImage = UIImage(data: imageData) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+                        .onTapGesture {
+                            showImagePicker = true
+                        }
+                } else {
+                    Image(systemName: "person.crop.circle.fill")
+                        .resizable()
+                        .foregroundColor(.gray)
+                        .frame(width: 100, height: 100)
+                        .onTapGesture {
+                            showImagePicker = true
+                        }
+                }
                 
                 Text(product.title ?? "NaN")
                     .foregroundStyle(Color("black-white"))
@@ -77,6 +104,12 @@ struct ProductDetailPage: View {
                 
                 Spacer()
             }
+            .sheet(isPresented: $showImagePicker) {
+                ImagePicker(image: $image, isShown: $showImagePicker) {
+                    // Completion handler to be executed after image selection
+                    updateTransation()
+                }
+            }
             .background(Color("app-background"))
             .navigationDestination(isPresented: $openReceivedDetailsPage, destination: {
                 ReceivedProductDetailPage(product: product)
@@ -87,6 +120,26 @@ struct ProductDetailPage: View {
             .toolbarRole(.editor)
         }
     }
+    
+    func updateTransation() {
+        // Check if an image has been selected
+        guard let selectedImage = image else {
+            return // If no image is selected, return early
+        }
+        // Convert the selected image to data
+        if let imageData = selectedImage.jpegData(compressionQuality: 1.0) {
+            // Assign the image data to the product's image attribute
+            product.image = imageData
+            
+            // Save the changes to Core Data
+            do {
+                try moc.save()
+            } catch {
+                print("Error saving context: \(error.localizedDescription)")
+            }
+        }
+    }
+
 }
 
 //#Preview {

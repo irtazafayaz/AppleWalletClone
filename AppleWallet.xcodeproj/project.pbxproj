@@ -28,6 +28,8 @@
 		D57DD7E02B9374E4008532AE /* ProductDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7DF2B9374E4008532AE /* ProductDetailPage.swift */; };
 		D57DD7E22B93C81E008532AE /* ReceivedProductDetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7E12B93C81E008532AE /* ReceivedProductDetailPage.swift */; };
 		D57DD7E42B93CDCE008532AE /* InstantTransferPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */; };
+		D58E046B2BA9A56B00C8978E /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E046A2BA9A56B00C8978E /* ImagePicker.swift */; };
+		D58E046D2BA9A8EB00C8978E /* TransactionPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58E046C2BA9A8EB00C8978E /* TransactionPopupView.swift */; };
 		D5CF3A862BA47A28007779B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D5CF3A852BA47A28007779B3 /* GoogleService-Info.plist */; };
 		D5CF3A882BA47B99007779B3 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF3A872BA47B99007779B3 /* SessionManager.swift */; };
 		D5CF3A8A2BA47C5B007779B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D5CF3A892BA47C5B007779B3 /* FirebaseFirestore */; };
@@ -67,6 +69,8 @@
 		D57DD7DF2B9374E4008532AE /* ProductDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailPage.swift; sourceTree = "<group>"; };
 		D57DD7E12B93C81E008532AE /* ReceivedProductDetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedProductDetailPage.swift; sourceTree = "<group>"; };
 		D57DD7E32B93CDCE008532AE /* InstantTransferPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantTransferPage.swift; sourceTree = "<group>"; };
+		D58E046A2BA9A56B00C8978E /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		D58E046C2BA9A8EB00C8978E /* TransactionPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionPopupView.swift; sourceTree = "<group>"; };
 		D5CF3A852BA47A28007779B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D5CF3A872BA47B99007779B3 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		D5E28EE22B95B70200C5ED9B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 		D57DD7B72B924BF9008532AE /* UIKit Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D58E046A2BA9A56B00C8978E /* ImagePicker.swift */,
 				D57DD7B32B91FD6F008532AE /* DotView.swift */,
 				D57DD7AD2B91FBEC008532AE /* CardView.swift */,
 				D57DD7AF2B91FC31008532AE /* Utilities.swift */,
@@ -195,6 +200,7 @@
 				D565A0492B991B9E00DC242C /* ProductRowView.swift */,
 				D53ED0892B9E59B400334348 /* SentProductDetailPage.swift */,
 				D5ED9E342B9FD38A0085AC9A /* LoginView.swift */,
+				D58E046C2BA9A8EB00C8978E /* TransactionPopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -348,10 +354,12 @@
 				D57DD7B22B91FD03008532AE /* CardViewWrapper.swift in Sources */,
 				D57DD7E22B93C81E008532AE /* ReceivedProductDetailPage.swift in Sources */,
 				D565A0482B9919B000DC242C /* TopNav.swift in Sources */,
+				D58E046B2BA9A56B00C8978E /* ImagePicker.swift in Sources */,
 				D5E28EE32B95B70200C5ED9B /* ViewController.swift in Sources */,
 				D57DD79C2B91E81E008532AE /* AppleWalletApp.swift in Sources */,
 				D565A0412B99159200DC242C /* Transactions.xcdatamodeld in Sources */,
 				D5ED9E352B9FD38A0085AC9A /* LoginView.swift in Sources */,
+				D58E046D2BA9A8EB00C8978E /* TransactionPopupView.swift in Sources */,
 				D57DD7BB2B9261A0008532AE /* HomePage.swift in Sources */,
 				D5E28EE72B95E35500C5ED9B /* CustomBackButton.swift in Sources */,
 				D565A0442B9915F300DC242C /* DataController.swift in Sources */,
@@ -506,7 +514,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thefreelancers.applewallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SchoolAIDevelopment;
@@ -540,7 +548,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.thefreelancers.applewallet;
+				PRODUCT_BUNDLE_IDENTIFIER = com.walletapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SchoolAIDevelopment;
