@@ -16,7 +16,7 @@ struct HomePage: View {
     @State private var selectedProduct: Product = products[0]
     @State private var selectedTransaction: Transactions?
     @State private var defaultY: CGFloat = 0
-    @State private var showNavBar: Bool = false
+    @Binding var showNavBar: Bool
     @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
     @State private var showingTransactionPopup = false
 
@@ -236,7 +236,3 @@ struct TransactionDetails: View {
     }
 }
 
-
-#Preview {
-    HomePage()
-}

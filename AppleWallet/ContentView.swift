@@ -11,6 +11,7 @@ struct ContentView: View {
     
     @State private var focalPoint = CGPoint(x: 0, y: 0)
     @State private var showHomeScreen: Bool = false
+    @State private var showNavBar: Bool = false
     @EnvironmentObject var sessionManager: SessionManager
 
     var body: some View {
@@ -18,12 +19,8 @@ struct ContentView: View {
             switch sessionManager.authState {
             case .home:
                 VStack {
-                    Button {
-                        print("Tapped")
-                    } label: {
-                        Text("Tapped")
-                    }
-                    HomePage()
+                    TopNav(showNavBar: $showNavBar)
+                    HomePage(showNavBar: $showNavBar)
                 }
             case .login:
                 LoginView()
