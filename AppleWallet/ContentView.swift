@@ -17,7 +17,14 @@ struct ContentView: View {
         VStack {
             switch sessionManager.authState {
             case .home:
-                HomePage()
+                VStack {
+                    Button {
+                        print("Tapped")
+                    } label: {
+                        Text("Tapped")
+                    }
+                    HomePage()
+                }
             case .login:
                 LoginView()
             }

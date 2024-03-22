@@ -26,7 +26,6 @@ struct HomePage: View {
     var body: some View {
         NavigationStack {
             VStack {
-                TopNav(showNavBar: $showNavBar)
                 CardViewSection()
                     .simultaneousGesture(DragGesture().onChanged({ value in
                         let isScrollDown = value.translation.height > 0
@@ -99,7 +98,6 @@ struct HomePage: View {
 struct CardViewSection: View {
     
     @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
-
     
     var body: some View {
         
