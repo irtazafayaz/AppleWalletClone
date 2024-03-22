@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Shiny
 
 struct HomePage: View {
     
@@ -29,28 +30,21 @@ struct HomePage: View {
                 CardViewSection()
                     .simultaneousGesture(DragGesture().onChanged({ value in
                         let isScrollDown = value.translation.height > 0
-                        if !isScrollDown {
-                            withAnimation(.linear) {
-                                showNavBar = true
-                            }
-                        } else {
-                            withAnimation(.easeInOut) {
-                                showNavBar = false
+                        let dragThreshold: CGFloat = 20 // Adjust this threshold value as needed
+
+                        // Only trigger the show/hide logic if the drag distance exceeds the threshold
+                        if abs(value.translation.height) > dragThreshold {
+                            if !isScrollDown {
+                                withAnimation(.linear) {
+                                    showNavBar = true
+                                }
+                            } else {
+                                withAnimation(.easeInOut) {
+                                    showNavBar = false
+                                }
                             }
                         }
                     }))
-                    .overlay(
-                        ZStack(alignment: .topTrailing) {
-                            Color.clear
-                            TextField("", text: $cardBalance)
-                                .font(.title3)
-                                .padding(12)
-                                .frame(width: 100, alignment: .trailing)
-                                .multilineTextAlignment(.trailing)
-                                .bold()
-                                .foregroundColor(.white)
-                        }
-                    )
                 if showNavBar {
                     BalanceSection(cardBalance: $cardBalance)
                         .padding(.top, 10)
@@ -103,10 +97,40 @@ struct HomePage: View {
 }
 
 struct CardViewSection: View {
+    
+    @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
+
+    
     var body: some View {
-        CardViewWrapper()
-            .frame(width: 350, height: 200)
-            .padding(.top, 5)
+        
+        VStack {
+            
+            HStack {
+                Image(systemName: "applelogo")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                Text("Pay Cash")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                Spacer()
+                Text(cardBalance)
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+            }
+            .padding()
+            
+            Image("card-pattern")
+                .resizable()
+                .shiny(.iridescent)
+        }
+        .background(Color("black-gray"))
+        .frame(maxWidth: .infinity)
+        .frame(height: 250)
+        .cornerRadius(10)
+
     }
 }
 

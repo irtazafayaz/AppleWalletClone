@@ -6,6 +6,6 @@ target 'AppleWallet' do
   use_frameworks!
   
   # Pods for AppleWallet
-  pod "Shiny"
+#  pod "Shiny"
   
 end
