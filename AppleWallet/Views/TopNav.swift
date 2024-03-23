@@ -10,7 +10,8 @@ import SwiftUI
 struct TopNav: View {
     
     @Binding var showNavBar: Bool
-    @State private var openCardDetailsPage: Bool = false
+    @Binding var openCardDetailsPage: Bool
+    @Binding var hideNavBar: Bool
 
     var body: some View {
         VStack {
@@ -43,6 +44,7 @@ struct TopNav: View {
                             Label("Card Number", systemImage: "creditcard.and.123")
                         }
                         Button(action: {
+                            hideNavBar = true
                             openCardDetailsPage.toggle()
                         }) {
                             Label("Card Details", systemImage: "info.circle")
@@ -79,13 +81,9 @@ struct TopNav: View {
                 }
             }
         }
-        .navigationDestination(isPresented: $openCardDetailsPage, destination: {
-            CardDetailsPage()
-        })
-
     }
 }
 
-#Preview {
-    TopNav(showNavBar: .constant(false))
-}
+//#Preview {
+//    TopNav(showNavBar: .constant(false))
+//}

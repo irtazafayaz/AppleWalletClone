@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct CardDetailsPage: View {
 
     @State private var scrollOffset: CGFloat = 0
+    @Binding var hideNavBar: Bool
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -252,6 +251,7 @@ struct CardDetailsPage: View {
             
             HStack {
                 Button {
+                    hideNavBar = false
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
@@ -286,12 +286,6 @@ struct ScrollOffsetPreferenceKey: PreferenceKey {
         value += nextValue()
     }
 }
-
-
-#Preview {
-    CardDetailsPage()
-}
-
 
 
 

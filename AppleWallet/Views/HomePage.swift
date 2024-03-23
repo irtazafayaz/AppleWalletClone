@@ -17,6 +17,8 @@ struct HomePage: View {
     @State private var selectedTransaction: Transactions?
     @State private var defaultY: CGFloat = 0
     @Binding var showNavBar: Bool
+    @Binding var openCardDetailsPage: Bool
+    @Binding var hideNavBar: Bool
     @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
     @State private var showingTransactionPopup = false
 
@@ -26,7 +28,7 @@ struct HomePage: View {
     var body: some View {
         NavigationStack {
             VStack {
-                CardViewSection()
+                CardViewSection(cardBalance: $cardBalance)
                     .simultaneousGesture(DragGesture().onChanged({ value in
                         let isScrollDown = value.translation.height > 0
                         let dragThreshold: CGFloat = 20 // Adjust this threshold value as needed
@@ -50,10 +52,13 @@ struct HomePage: View {
                     LatestTransactionsSection {
                         showingTransactionPopup.toggle()
                     }
-                    TransactionDetails(openProductDetailsPage: $openProductDetailsPage, openSentProductDetailsPage: $openSentDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
+                    TransactionDetails(hideNavBar: $hideNavBar, openProductDetailsPage: $openProductDetailsPage, openSentProductDetailsPage: $openSentDetailsPage, openInstantTransferPage: $openInstantTransferPage, selectedTransaction: $selectedTransaction)
                 }
                 Spacer()
                 
+            }
+            .onAppear {
+                hideNavBar = false
             }
             .onChange(of: cardBalance) {
                 UserDefaults.standard.setValue(cardBalance, forKey: "cardBalance")
@@ -80,6 +85,9 @@ struct HomePage: View {
                 }
             })
             .toolbarBackground(Color("app-background"))
+            .navigationDestination(isPresented: $openCardDetailsPage, destination: {
+                CardDetailsPage(hideNavBar: $hideNavBar)
+            })
         }
     }
     
@@ -97,7 +105,7 @@ struct HomePage: View {
 
 struct CardViewSection: View {
     
-    @State private var cardBalance: String = (UserDefaults.standard.string(forKey: "cardBalance") ?? "$0")
+    @Binding var cardBalance: String
     
     var body: some View {
         
@@ -113,10 +121,7 @@ struct CardViewSection: View {
                     .bold()
                     .foregroundColor(.white)
                 Spacer()
-                Text(cardBalance)
-                    .font(.title3)
-                    .bold()
-                    .foregroundColor(.white)
+                
             }
             .padding()
             
@@ -126,8 +131,20 @@ struct CardViewSection: View {
         }
         .background(Color("black-gray"))
         .frame(maxWidth: .infinity)
-        .frame(height: 250)
+        .frame(height: 200)
         .cornerRadius(10)
+        .overlay(
+            ZStack(alignment: .topTrailing) {
+                Color.clear
+                TextField("", text: $cardBalance)
+                    .font(.title3)
+                    .padding(12)
+                    .frame(width: 100, alignment: .trailing)
+                    .multilineTextAlignment(.trailing)
+                    .bold()
+                    .foregroundColor(.white)
+            }
+        )
 
     }
 }
@@ -190,6 +207,7 @@ struct TransactionDetails: View {
     @FetchRequest(sortDescriptors: []) var transactions: FetchedResults<Transactions>
     @Environment(\.managedObjectContext) var moc
     
+    @Binding var hideNavBar: Bool
     @Binding var openProductDetailsPage: Bool
     @Binding var openSentProductDetailsPage: Bool
     @Binding var openInstantTransferPage: Bool
@@ -228,6 +246,7 @@ struct TransactionDetails: View {
     private func openDetailPage(_ transaction: Transactions) {
         selectedTransaction = transaction
         guard let type = transaction.type else { return }
+        hideNavBar = true
         if type == ProductType.received.rawValue {
             openProductDetailsPage.toggle()
         } else if type == ProductType.sent.rawValue {
